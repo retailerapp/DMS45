@@ -1509,6 +1509,9 @@ namespace Epoint.Modules
                     {
                         if (this.dtDataExcelImport.Rows.IndexOf(drImport) < iRowGetValue)
                             continue;
+                        if (drImport[0].ToString().Trim() == String.Empty)
+                            continue;
+                        //drImport[0].ToString();
 
                         RowDataImport ++;
                         DataRow drNewRowFirst = tableDetail.NewRow();

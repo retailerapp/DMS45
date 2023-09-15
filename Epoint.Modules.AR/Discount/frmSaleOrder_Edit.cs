@@ -700,7 +700,7 @@ namespace Epoint.Modules.AR
 
                 //SQLExec.ExecuteReturnValue("sp_Check_PXKDetail",htPara,CommandType.StoredProcedure)
 
-                if (strMa_Ct == "IN" && !Convert.ToBoolean(SQLExec.ExecuteReturnValue("sp_Check_PXKDetail", htPara, CommandType.StoredProcedure)))
+                if (Common.Inlist(strMa_Ct ,"IN,INT") && !Convert.ToBoolean(SQLExec.ExecuteReturnValue("sp_Check_PXKDetail", htPara, CommandType.StoredProcedure)))
                 {
                     drEditPh["So_Ct_Lap"] = string.Empty;
                     drEditPh["Duyet"] = false;

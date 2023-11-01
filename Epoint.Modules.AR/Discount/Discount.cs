@@ -363,7 +363,7 @@ namespace Epoint.Modules.AR
         {
             DataTable dtEditCt = frmEditCt.dtEditCt;
             DataTable dtEditCtDisc = frmEditCt.dtEditCtDisc;
-            double dbTien = 0, dbTien4 = 0, dbTien4_N = 0, dbTien4_Org_N =0, dbTien_Ck = 0;
+            double dbTien = 0, dbTien4 = 0, dbTien4_N = 0, dbTien4_Org_N =0, dbTien_Ck = 0, dbTien_Line4 = 0;
             foreach (DataRow drEditCt in dtEditCt.Rows)
             {
                 if (Common.Inlist(drEditCt["Ma_Vt"].ToString(), Ma_Vt_List)) // Những dòng được chiết khấu
@@ -373,7 +373,8 @@ namespace Epoint.Modules.AR
                     dbTien4_Org_N = Math.Round(dbTien * dbAmtPercent / 100);//Tiên áp dụng
                     if (dbAmtAlloc >= 0)
                         dbTien4_N = dbAmtAlloc <= dbTien4_Org_N ? dbAmtAlloc : dbTien4_Org_N; // nếu ns > ck thì lấy ck
-
+                    else
+                        dbTien4_N = dbTien4_Org_N;
 
                     dbTien_Ck = Convert.ToDouble(drEditCt["Tien_Ck"]);         
                     dbTien4 += dbTien4_N;

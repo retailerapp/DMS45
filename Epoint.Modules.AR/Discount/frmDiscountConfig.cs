@@ -118,6 +118,7 @@ namespace Epoint.Modules.AR
             tabDiscCountDetail.HideAllTabPage();
             tabDiscCountDetail.ShowPageInTabControl(tpCtDiscount);
             tabDiscCountDetail.ShowPageInTabControl(tpMa_Nh_Dt);
+            tabDiscCountDetail.ShowPageInTabControl(tpDiscCust);
             tabDiscCountDetail.ShowPageInTabControl(tpMa_Nh_Vt);
            
         }

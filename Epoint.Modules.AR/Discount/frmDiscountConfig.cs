@@ -14,6 +14,7 @@ using Epoint.Systems.Data;
 using System.Collections;
 using System.Data.SqlClient;
 using Epoint.Systems.Elements;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Epoint.Modules.AR
 {
@@ -61,13 +62,15 @@ namespace Epoint.Modules.AR
         {
             InitializeComponent();
 
+            dgvDiscCustomer.KeyDown += new KeyEventHandler(DgvDiscCustomer_KeyDown);
+
             bdsDiscountProg.PositionChanged += new EventHandler(bdsDiscountProg_PositionChanged);
             bdsDiscBreak.PositionChanged += new EventHandler(bdsDiscBreak_PositionChanged);
             this.btFillterData.Click += new EventHandler(btFillData_Click);
             this.btImport.Click += new EventHandler(btImport_Click);
         }
 
-
+        
 
         public override void Load()
         {
@@ -1109,8 +1112,76 @@ namespace Epoint.Modules.AR
 
             EpointProcessBox.AddMessage("Kết thúc");
         }
+        public virtual void Import_Excel_Customer()
+        {
 
+            strError = string.Empty;
+            if (bdsDiscountProg.Position < 0)
+                return;
+
+            if (bdsDiscBreak.Position < 0)
+                return;
+
+           
+          
+            //Copy hang hien tai
+            if (bdsDiscCust.Position >= 0)
+                Common.CopyDataRow(((DataRowView)bdsDiscCust.Current).Row, ref drCurrentDiscCust);
+            else
+                drCurrentDiscCust = dtDiscCust.NewRow();
+
+            Common.CopyDataRow(((DataRowView)bdsDiscBreak.Current).Row, ref drCurrentBreak);
+
+            drCurrentDiscCust["Ma_CTKM"] = drCurrentBreak["Ma_CTKM"];
+            drCurrentDiscCust["STT"] = drCurrentBreak["STT"];
+
+
+            OpenFileDialog ofdlg = new OpenFileDialog();
+            ofdlg.Filter = "xls files (*.xls;*.xlsx)|*.xls;*.xlsx";
+            ofdlg.RestoreDirectory = true;
+            if (ofdlg.ShowDialog() != DialogResult.OK)
+                return;
+
+            DataTable dtCustomer = new DataTable();
+            dtCustomer = Common.ReadExcel(ofdlg.FileName);
+            Setdefault(ref dtCustomer);
         
+            string strValue = string.Empty;
+            string strValueList = string.Empty;
+            string[] KeyAr = new string[3] { "Ma_CtKm", "Stt", "Ma_Dt" };
+            string[] ValueAr;
+
+
+            foreach (DataRow dr in dtCustomer.Rows)
+            {
+                string strMa_Dt = dr["Ma_Dt"].ToString();
+
+                if (!DataTool.SQLCheckExist("LIDOITUONG", "Ma_Dt", strMa_Dt))
+                    continue;
+
+                ValueAr = new string[3] { drCurrentDiscCust["Ma_CTKM"].ToString(), drCurrentDiscCust["STT"].ToString(), strMa_Dt };
+
+                drCurrentDiscCust["Ma_Dt"] = strMa_Dt;
+                drCurrentDiscCust["Ten_Dt"] = DataTool.SQLGetNameByCode("LIDOITUONG", "Ma_Dt", "Ten_Dt", strMa_Dt);
+
+                if (!DataTool.SQLCheckExist("OM_DISCCUST", KeyAr, ValueAr))
+                {
+                    if (DataTool.SQLUpdate(enuEdit.New, "OM_DISCCUST", ref drCurrentDiscCust))
+                    {
+                        if (bdsDiscCust.Position >= 0)
+                            dtDiscCust.ImportRow(drCurrentDiscCust);
+                        else
+                            dtDiscCust.Rows.Add(drCurrentDiscCust);
+
+
+                        dtDiscCust.AcceptChanges();
+                    }
+                    else
+                        dtDiscCust.RejectChanges();
+                }
+            }
+        }
+
         public override void EpointRelease()
         {
 
@@ -1119,5 +1190,36 @@ namespace Epoint.Modules.AR
         }
 
         #endregion
+        private void DgvDiscCustomer_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F10:
+                    Import_Excel_Customer();
+                    break;
+            }
+            
+        }
+       /* protected override void OnKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    return;
+                   
+            }
+
+            if (this.ActiveControl == dgvDiscCustomer)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.F10:
+                        this.Import_Excel_Customer();
+                        return;
+                }
+            }
+
+            base.OnKeyDown(e);
+        }*/
     }
 }

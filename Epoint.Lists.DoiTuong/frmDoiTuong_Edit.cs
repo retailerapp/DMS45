@@ -32,6 +32,11 @@ namespace Epoint.Lists
             txtMa_CbNV_GH.Validating += new CancelEventHandler(txtMa_CbNv_GH_Validating);
             txtMa_Dt_Gia_Mua.Validating += new CancelEventHandler(txtMa_Dt_Gia_Validating);
             txtMa_Tuyen.Validating += new CancelEventHandler(txtMa_Tuyen_Validating);
+
+
+            txtTk_Dt.Validating += new CancelEventHandler(txtTk_Dt_Validating);
+            txtTk_Dthu.Validating += new CancelEventHandler(txtTk_Dthu_Validating);
+            txtTk_Hbtl.Validating += new CancelEventHandler(txtTk_Hbtl_Validating);
         }
 
         public override void Load(enuEdit enuNew_Edit, DataRow drCurrent)
@@ -118,6 +123,34 @@ namespace Epoint.Lists
             }
             else
                 lbtTen_Tuyen.Text = string.Empty;
+
+            //Tk_Gv
+            if (txtTk_Dthu.Text.Trim() != string.Empty)
+            {
+                lbtTen_Tk_Dthu.Text = DataTool.SQLGetNameByCode("LITAIKHOAN", "Tk", "Ten_Tk", txtTk_Dthu.Text.Trim());
+                dicName.Add(lbtTen_Tk_Dthu.Name, lbtTen_Tk_Dthu.Text);
+            }
+            else
+                lbtTen_Tk_Dthu.Text = string.Empty;
+
+            //Tk_Dt
+            if (txtTk_Dt.Text.Trim() != string.Empty)
+            {
+                lbtTen_Tk_Dt.Text = DataTool.SQLGetNameByCode("LITAIKHOAN", "Tk", "Ten_Tk", txtTk_Dt.Text.Trim());
+                dicName.Add(lbtTen_Tk_Dt.Name, lbtTen_Tk_Dt.Text);
+            }
+            else
+                lbtTen_Tk_Dt.Text = string.Empty;
+
+            //Tk_HbTl
+            if (txtTk_Hbtl.Text.Trim() != string.Empty)
+            {
+                lbtTen_Tk_Hbtl.Text = DataTool.SQLGetNameByCode("LITAIKHOAN", "Tk", "Ten_Tk", txtTk_Hbtl.Text.Trim());
+                dicName.Add(lbtTen_Tk_Hbtl.Name, lbtTen_Tk_Hbtl.Text);
+            }
+            else
+                lbtTen_Tk_Hbtl.Text = string.Empty;
+
         }
 
         public override bool FormCheckValid()
@@ -361,6 +394,78 @@ namespace Epoint.Lists
             dicName.SetValue(lbtTen_Dt_Gia_Mua.Name, lbtTen_Dt_Gia_Mua.Text);
         }
 
+        private void txtTk_Dt_Validating(object sender, CancelEventArgs e)
+        {
+            string strValue = txtTk_Dt.Text.Trim();
+            bool bRequire = false;
+
+            //frmTaiKhoan frmLookup = new frmTaiKhoan();
+            DataRow drLookup = Lookup.ShowLookup("Tk", strValue, bRequire, "", "Tk_Cuoi = 1");
+
+            if (bRequire && drLookup == null)
+                e.Cancel = true;
+
+            if (drLookup == null)
+            {
+                txtTk_Dt.Text = string.Empty;
+                lbtTen_Tk_Dt.Text = string.Empty;
+            }
+            else
+            {
+                txtTk_Dt.Text = ((string)drLookup["Tk"]).Trim();
+                lbtTen_Tk_Dt.Text = ((string)drLookup["Ten_Tk"]).Trim();
+            }
+
+            dicName.SetValue(lbtTen_Tk_Dt.Name, lbtTen_Tk_Dt.Text);
+        }
+        private void txtTk_Dthu_Validating(object sender, CancelEventArgs e)
+        {
+            string strValue = txtTk_Dthu.Text.Trim();
+            bool bRequire = false;
+
+            //frmTaiKhoan frmLookup = new frmTaiKhoan();
+            DataRow drLookup = Lookup.ShowLookup("Tk", strValue, bRequire, "", "Tk_Cuoi = 1");
+
+            if (bRequire && drLookup == null)
+                e.Cancel = true;
+
+            if (drLookup == null)
+            {
+                txtTk_Dthu.Text = string.Empty;
+                lbtTen_Tk_Dthu.Text = string.Empty;
+            }
+            else
+            {
+                txtTk_Dthu.Text = ((string)drLookup["Tk"]).Trim();
+                lbtTen_Tk_Dthu.Text = ((string)drLookup["Ten_Tk"]).Trim();
+            }
+
+            dicName.SetValue(lbtTen_Tk_Dthu.Name, lbtTen_Tk_Dthu.Text);
+        }
+        private void txtTk_Hbtl_Validating(object sender, CancelEventArgs e)
+        {
+            string strValue = txtTk_Hbtl.Text.Trim();
+            bool bRequire = false;
+
+            //frmTaiKhoan frmLookup = new frmTaiKhoan();
+            DataRow drLookup = Lookup.ShowLookup("Tk", strValue, bRequire, "", "Tk_Cuoi = 1");
+
+            if (bRequire && drLookup == null)
+                e.Cancel = true;
+
+            if (drLookup == null)
+            {
+                txtTk_Hbtl.Text = string.Empty;
+                lbtTen_Tk_Hbtl.Text = string.Empty;
+            }
+            else
+            {
+                txtTk_Hbtl.Text = ((string)drLookup["Tk"]).Trim();
+                lbtTen_Tk_Hbtl.Text = ((string)drLookup["Ten_Tk"]).Trim();
+            }
+
+            dicName.SetValue(lbtTen_Tk_Hbtl.Name, lbtTen_Tk_Hbtl.Text);
+        }
         #endregion
     }
 }

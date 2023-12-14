@@ -31,6 +31,7 @@ namespace Epoint.Modules
         public DataTable dtEditCtOrg;
 
         public DataRow drDmCt;
+        public DataRow drDmDt;
 
         public DataTable dtCtVt;
 

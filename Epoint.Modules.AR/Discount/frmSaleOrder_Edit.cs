@@ -18,6 +18,7 @@ using Epoint.Systems.Customizes;
 using Epoint.Lists;
 using System.Data.Odbc;
 using System.Data.SqlClient;
+using System.Security.Policy;
 
 namespace Epoint.Modules.AR
 {
@@ -350,9 +351,30 @@ namespace Epoint.Modules.AR
                     {
                     }
 
-
+                    // Lay mac dinh theo Ma_Ct
                     drCurrent["Tk_No2"] = (string)drDmCt["Tk_No"];
                     drCurrent["Tk_Co2"] = (string)drDmCt["Tk_Co"];
+
+
+                    // Lay theo đối tượng
+                    if ((string)drDmCt["Nh_Ct"] == "1")// Don tra
+                    {
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Hbtl"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Hbtl"] != String.Empty ? (string)drDmDt["Tk_Hbtl"] : drCurrent["Tk_No2"];
+
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_Co2"];
+
+                    }
+                    else// don ban
+                    {
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_No2"];
+
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dthu"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dthu"] != String.Empty ? (string)drDmDt["Tk_Dthu"] : drCurrent["Tk_Co2"];
+
+                    }
                     drCurrent["Ma_Tte"] = Element.sysMa_Tte;
                     drCurrent["Ty_Gia"] = 1;
 
@@ -408,6 +430,9 @@ namespace Epoint.Modules.AR
             Voucher.Update_Header(this);
 
             Voucher.Update_Stt(this, strModule);
+
+            if (this.drEditPh["Ma_Dt"].ToString() != string.Empty)
+                this.drDmDt = DataTool.SQLGetDataRowByID("LIDOITUONG", "Ma_Dt", this.drEditPh["Ma_Dt"].ToString());
 
             if (dgvEditCt1.Columns.Contains("DVT"))
                 dgvEditCt1.Columns["DVT"].ReadOnly = true;
@@ -700,7 +725,7 @@ namespace Epoint.Modules.AR
 
                 //SQLExec.ExecuteReturnValue("sp_Check_PXKDetail",htPara,CommandType.StoredProcedure)
 
-                if (Common.Inlist(strMa_Ct ,"IN,INT") && !Convert.ToBoolean(SQLExec.ExecuteReturnValue("sp_Check_PXKDetail", htPara, CommandType.StoredProcedure)))
+                if (Common.Inlist(strMa_Ct, "IN,INT") && !Convert.ToBoolean(SQLExec.ExecuteReturnValue("sp_Check_PXKDetail", htPara, CommandType.StoredProcedure)))
                 {
                     drEditPh["So_Ct_Lap"] = string.Empty;
                     drEditPh["Duyet"] = false;
@@ -1664,7 +1689,7 @@ namespace Epoint.Modules.AR
                 if (strLoai_CtKm == "L") // Loại khuyến mãi dòng
                 {
 
-                    double dbQtyLine = 0, dbAmtLine = 0, dbAmtDiscLine = 0,dbFactorQtyAmt = 0;
+                    double dbQtyLine = 0, dbAmtLine = 0, dbAmtDiscLine = 0, dbFactorQtyAmt = 0;
                     string strSttKM_Line = string.Empty;
                     int iDiscTimeLine = 1;
                     strMa_Vt_Disc = string.Empty;
@@ -2228,8 +2253,10 @@ namespace Epoint.Modules.AR
             }
             else
             {
+
                 txtMa_Dt.Text = drLookup["Ma_Dt"].ToString();
                 //txtTen_Dt.Text = drLookup["Ten_Dt"].ToString();
+                this.drDmDt = DataTool.SQLGetDataRowByID("LIDOITUONG", "Ma_Dt", txtMa_Dt.Text);
 
                 if (txtMa_Dt.Text != (string)drEditPh["Ma_Dt"])
                 {
@@ -2266,6 +2293,31 @@ namespace Epoint.Modules.AR
 
             Voucher.Update_Detail(this, "Ma_Dt");
 
+            foreach (DataRow drCurrent in this.dtEditCt.Rows)
+            {
+                //if (strMa_Ct == "TL")//TL
+                if ((string)drDmCt["Nh_Ct"] == "1")
+                {
+                    // Theo Doi Tuong
+                    if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Hbtl"))
+                        drCurrent["Tk_No2"] = (string)drDmDt["Tk_Hbtl"] != String.Empty ? (string)drDmDt["Tk_Hbtl"] : drCurrent["Tk_No2"];
+
+                    if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                        drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_Co2"];
+                }
+                else//HD
+                {
+
+                    // Theo Doi Tuong
+                    if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                        drCurrent["Tk_No2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_No2"];
+
+                    if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dthu"))
+                        drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dthu"] != String.Empty ? (string)drDmDt["Tk_Dthu"] : drCurrent["Tk_Co2"];
+
+
+                }
+            }
             if ((((txtTextLookup)sender).AutoFilter != null) && ((txtTextLookup)sender).AutoFilter.Visible)
             {
                 ((txtTextLookup)sender).AutoFilter.Visible = false;
@@ -3724,6 +3776,13 @@ namespace Epoint.Modules.AR
                             drCurrent["Tk_Co2"] = drDmCt["Tk_Co"];
                             drCurrent["Tk_No2"] = drDmCt["Tk_No"];
                         }
+
+                        // Theo Doi Tuong
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Hbtl"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Hbtl"] != String.Empty ? (string)drDmDt["Tk_Hbtl"] : drCurrent["Tk_No2"];
+
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_Co2"];
                     }
                     else//HD
                     {
@@ -3731,12 +3790,22 @@ namespace Epoint.Modules.AR
                         drCurrent["Tk_Co"] = drLookup["Tk_Vt"];
                         drCurrent["Tk_Co2"] = drLookup["Tk_Dt"];
 
+
+
                         if (drLookup.Table.Columns.Contains("Ma_Thue_OUT"))
                             drCurrent["Ma_Thue"] = drLookup["Ma_Thue_OUT"];
+                        // Theo Doi Tuong
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_No2"];
+
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dthu"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dthu"] != String.Empty ? (string)drDmDt["Tk_Dthu"] : drCurrent["Tk_Co2"];
 
                         Calc_Thue_Vat_Tk(drCurrent);
                         Calc_Thue_Vat(drCurrent);
                     }
+
+
                 }
                 else
                 {
@@ -3746,6 +3815,16 @@ namespace Epoint.Modules.AR
                     if (drCurrent["Dvt"] == DBNull.Value || (string)drCurrent["Dvt"] == string.Empty)
                         drCurrent["Dvt"] = drLookup["Dvt"];
 
+                    if ((string)drDmCt["Nh_Ct"] == "1")// Don tra
+                    {
+
+
+                    }
+                    else// don ban
+                    {
+
+
+                    }
                     //if (strMa_Ct == "TL")//TL
                     if ((string)drDmCt["Nh_Ct"] == "1")
                     {
@@ -3757,6 +3836,13 @@ namespace Epoint.Modules.AR
 
                         if (drCurrent["Tk_No2"] == DBNull.Value || (string)drCurrent["Tk_No2"] == string.Empty)
                             drCurrent["Tk_No2"] = drLookup["Tk_HBTL"];
+
+                        // Lay theo đối tượng
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Hbtl"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Hbtl"] != String.Empty ? (string)drDmDt["Tk_Hbtl"] : drCurrent["Tk_No2"];
+
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_Co2"];
                     }
                     else//HD
                     {
@@ -3774,7 +3860,12 @@ namespace Epoint.Modules.AR
                             if (drCurrent["Ma_Thue"] == DBNull.Value || (string)drCurrent["Ma_Thue"] == string.Empty)
                                 drCurrent["Ma_Thue"] = drLookup["Ma_Thue_OUT"];
 
+                        // Lay theo đối tượng
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dt"))
+                            drCurrent["Tk_No2"] = (string)drDmDt["Tk_Dt"] != String.Empty ? (string)drDmDt["Tk_Dt"] : drCurrent["Tk_No2"];
 
+                        if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Tk_Dthu"))
+                            drCurrent["Tk_Co2"] = (string)drDmDt["Tk_Dthu"] != String.Empty ? (string)drDmDt["Tk_Dthu"] : drCurrent["Tk_Co2"];
                         Calc_Thue_Vat_Tk(drCurrent);
                         Calc_Thue_Vat(drCurrent);
                     }
@@ -3809,6 +3900,17 @@ namespace Epoint.Modules.AR
                 dgvEditCt1.CancelEdit();
                 dgvCell.Value = drLookup["Ma_Kho"].ToString();
                 dgvCell.Tag = drLookup["Ten_Kho"].ToString();
+
+                if (drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty)
+                    if ((string)drDmCt["Nh_Ct"] == "1")
+                    {
+
+                        drCurrent["Tk_Co"] = drLookup["Tk_Gv"].ToString();
+                    }
+                    else
+                    {
+                        drCurrent["Tk_No"] = drLookup["Tk_Gv"].ToString();
+                    }
             }
             return true;
         }

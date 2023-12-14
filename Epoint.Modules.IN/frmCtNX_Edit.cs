@@ -1680,6 +1680,16 @@ namespace Epoint.Modules.IN
                 dgvEditCt1.CancelEdit();
                 dgvCell.Value = drLookup["Ma_Kho"].ToString();
                 dgvCell.Tag = drLookup["Ten_Kho"].ToString();
+                if (drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty)
+                    if ((string)drDmCt["Nh_Ct"] == "1")
+                    {
+
+                        drCurrent["Tk_Co"] = drLookup["Tk_Gv"].ToString();
+                    }
+                    else
+                    {
+                        drCurrent["Tk_No"] = drLookup["Tk_Gv"].ToString();
+                    }
             }
             return true;
         }

@@ -87,6 +87,15 @@ namespace Epoint.Lists
             this.txtMa_Dt_Gia_Ban = new Epoint.Systems.Controls.txtTextBox();
             this.lbtTen_Nv_Bh = new Epoint.Systems.Controls.lblControl();
             this.grTitle1 = new System.Windows.Forms.GroupBox();
+            this.txtTk_Dt = new Epoint.Systems.Controls.txtTextBox();
+            this.lbtTen_Tk_Dt = new Epoint.Systems.Controls.lblControl();
+            this.lblTk_Gv = new Epoint.Systems.Controls.lblControl();
+            this.lbtTen_Tk_Hbtl = new Epoint.Systems.Controls.lblControl();
+            this.txtTk_Hbtl = new Epoint.Systems.Controls.txtTextBox();
+            this.lblTk_Hbtl = new Epoint.Systems.Controls.lblControl();
+            this.lbtTen_Tk_Dthu = new Epoint.Systems.Controls.lblControl();
+            this.txtTk_Dthu = new Epoint.Systems.Controls.txtTextBox();
+            this.lblTk_Dt = new Epoint.Systems.Controls.lblControl();
             this.lblMa_Tuyen = new Epoint.Systems.Controls.lblControl();
             this.lbtTen_Tuyen = new Epoint.Systems.Controls.lblControl();
             this.txtMa_Tuyen = new Epoint.Systems.Controls.txtTextLookup();
@@ -99,24 +108,24 @@ namespace Epoint.Lists
             // 
             // btgAccept
             // 
-            this.btgAccept.Location = new System.Drawing.Point(436, 637);
+            this.btgAccept.Location = new System.Drawing.Point(755, 718);
             this.btgAccept.Size = new System.Drawing.Size(181, 29);
             this.btgAccept.TabIndex = 1;
             // 
             // tabEdit
             // 
-            this.tabEdit.Size = new System.Drawing.Size(609, 629);
+            this.tabEdit.Size = new System.Drawing.Size(928, 710);
             this.tabEdit.TabIndex = 0;
             // 
             // Page1
             // 
             this.Page1.Controls.Add(this.grTitle1);
             this.Page1.Controls.Add(this.grTitle2);
-            this.Page1.Size = new System.Drawing.Size(601, 603);
+            this.Page1.Size = new System.Drawing.Size(920, 684);
             // 
             // Page2
             // 
-            this.Page2.Size = new System.Drawing.Size(601, 655);
+            this.Page2.Size = new System.Drawing.Size(920, 684);
             // 
             // txtLoai_Dt
             // 
@@ -325,7 +334,7 @@ namespace Epoint.Lists
             this.lblLoai_Dt0.Location = new System.Drawing.Point(170, 151);
             this.lblLoai_Dt0.Name = "lblLoai_Dt0";
             this.lblLoai_Dt0.Size = new System.Drawing.Size(198, 13);
-            this.lblLoai_Dt0.TabIndex = 14;
+            this.lblLoai_Dt0.TabIndex = 5;
             this.lblLoai_Dt0.Tag = "Object_Type0";
             this.lblLoai_Dt0.Text = "0-Khách lẻ, 1-Cá nhân, 2-Đơn vị tổ chức";
             this.lblLoai_Dt0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -764,9 +773,9 @@ namespace Epoint.Lists
             this.grTitle2.Controls.Add(this.txtMa_CbNv);
             this.grTitle2.Controls.Add(this.lbSo_Tk_NH);
             this.grTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grTitle2.Location = new System.Drawing.Point(21, 218);
+            this.grTitle2.Location = new System.Drawing.Point(21, 274);
             this.grTitle2.Name = "grTitle2";
-            this.grTitle2.Size = new System.Drawing.Size(559, 421);
+            this.grTitle2.Size = new System.Drawing.Size(559, 401);
             this.grTitle2.TabIndex = 1;
             this.grTitle2.TabStop = false;
             this.grTitle2.Text = "Thông tin khác";
@@ -1072,6 +1081,15 @@ namespace Epoint.Lists
             // 
             // grTitle1
             // 
+            this.grTitle1.Controls.Add(this.txtTk_Dt);
+            this.grTitle1.Controls.Add(this.lbtTen_Tk_Dt);
+            this.grTitle1.Controls.Add(this.lblTk_Gv);
+            this.grTitle1.Controls.Add(this.lbtTen_Tk_Hbtl);
+            this.grTitle1.Controls.Add(this.txtTk_Hbtl);
+            this.grTitle1.Controls.Add(this.lblTk_Hbtl);
+            this.grTitle1.Controls.Add(this.lbtTen_Tk_Dthu);
+            this.grTitle1.Controls.Add(this.txtTk_Dthu);
+            this.grTitle1.Controls.Add(this.lblTk_Dt);
             this.grTitle1.Controls.Add(this.txtOng_Ba);
             this.grTitle1.Controls.Add(this.txtMa_Dt);
             this.grTitle1.Controls.Add(this.lbMa_Dt);
@@ -1090,10 +1108,145 @@ namespace Epoint.Lists
             this.grTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grTitle1.Location = new System.Drawing.Point(21, 13);
             this.grTitle1.Name = "grTitle1";
-            this.grTitle1.Size = new System.Drawing.Size(559, 199);
+            this.grTitle1.Size = new System.Drawing.Size(789, 255);
             this.grTitle1.TabIndex = 0;
             this.grTitle1.TabStop = false;
             this.grTitle1.Text = "Đối tượng";
+            // 
+            // txtTk_Dt
+            // 
+            this.txtTk_Dt.bEnabled = true;
+            this.txtTk_Dt.bIsLookup = false;
+            this.txtTk_Dt.bReadOnly = false;
+            this.txtTk_Dt.bRequire = false;
+            this.txtTk_Dt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTk_Dt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTk_Dt.KeyFilter = "";
+            this.txtTk_Dt.Location = new System.Drawing.Point(138, 180);
+            this.txtTk_Dt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.txtTk_Dt.MaxLength = 20;
+            this.txtTk_Dt.Name = "txtTk_Dt";
+            this.txtTk_Dt.Size = new System.Drawing.Size(120, 20);
+            this.txtTk_Dt.TabIndex = 6;
+            this.txtTk_Dt.UseAutoFilter = false;
+            // 
+            // lbtTen_Tk_Dt
+            // 
+            this.lbtTen_Tk_Dt.AutoEllipsis = true;
+            this.lbtTen_Tk_Dt.AutoSize = true;
+            this.lbtTen_Tk_Dt.BackColor = System.Drawing.Color.Transparent;
+            this.lbtTen_Tk_Dt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtTen_Tk_Dt.ForeColor = System.Drawing.Color.Blue;
+            this.lbtTen_Tk_Dt.Location = new System.Drawing.Point(264, 183);
+            this.lbtTen_Tk_Dt.Name = "lbtTen_Tk_Dt";
+            this.lbtTen_Tk_Dt.Size = new System.Drawing.Size(85, 13);
+            this.lbtTen_Tk_Dt.TabIndex = 121;
+            this.lbtTen_Tk_Dt.Text = "Tên Tk Công nợ";
+            this.lbtTen_Tk_Dt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTk_Gv
+            // 
+            this.lblTk_Gv.AutoEllipsis = true;
+            this.lblTk_Gv.AutoSize = true;
+            this.lblTk_Gv.BackColor = System.Drawing.Color.Transparent;
+            this.lblTk_Gv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTk_Gv.Location = new System.Drawing.Point(27, 183);
+            this.lblTk_Gv.Name = "lblTk_Gv";
+            this.lblTk_Gv.Size = new System.Drawing.Size(69, 13);
+            this.lblTk_Gv.TabIndex = 120;
+            this.lblTk_Gv.Tag = "";
+            this.lblTk_Gv.Text = "Tk Đối tượng";
+            this.lblTk_Gv.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbtTen_Tk_Hbtl
+            // 
+            this.lbtTen_Tk_Hbtl.AutoEllipsis = true;
+            this.lbtTen_Tk_Hbtl.AutoSize = true;
+            this.lbtTen_Tk_Hbtl.BackColor = System.Drawing.Color.Transparent;
+            this.lbtTen_Tk_Hbtl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtTen_Tk_Hbtl.ForeColor = System.Drawing.Color.Blue;
+            this.lbtTen_Tk_Hbtl.Location = new System.Drawing.Point(263, 231);
+            this.lbtTen_Tk_Hbtl.Name = "lbtTen_Tk_Hbtl";
+            this.lbtTen_Tk_Hbtl.Size = new System.Drawing.Size(118, 13);
+            this.lbtTen_Tk_Hbtl.TabIndex = 118;
+            this.lbtTen_Tk_Hbtl.Text = "Tên Tk hàng bán trả lại";
+            this.lbtTen_Tk_Hbtl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtTk_Hbtl
+            // 
+            this.txtTk_Hbtl.bEnabled = true;
+            this.txtTk_Hbtl.bIsLookup = false;
+            this.txtTk_Hbtl.bReadOnly = false;
+            this.txtTk_Hbtl.bRequire = false;
+            this.txtTk_Hbtl.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTk_Hbtl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTk_Hbtl.KeyFilter = "";
+            this.txtTk_Hbtl.Location = new System.Drawing.Point(138, 228);
+            this.txtTk_Hbtl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.txtTk_Hbtl.MaxLength = 20;
+            this.txtTk_Hbtl.Name = "txtTk_Hbtl";
+            this.txtTk_Hbtl.Size = new System.Drawing.Size(120, 20);
+            this.txtTk_Hbtl.TabIndex = 8;
+            this.txtTk_Hbtl.UseAutoFilter = false;
+            // 
+            // lblTk_Hbtl
+            // 
+            this.lblTk_Hbtl.AutoEllipsis = true;
+            this.lblTk_Hbtl.AutoSize = true;
+            this.lblTk_Hbtl.BackColor = System.Drawing.Color.Transparent;
+            this.lblTk_Hbtl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTk_Hbtl.Location = new System.Drawing.Point(27, 231);
+            this.lblTk_Hbtl.Name = "lblTk_Hbtl";
+            this.lblTk_Hbtl.Size = new System.Drawing.Size(96, 13);
+            this.lblTk_Hbtl.TabIndex = 117;
+            this.lblTk_Hbtl.Tag = "Tk_Hbtl";
+            this.lblTk_Hbtl.Text = "Tk hàng bán trả lại";
+            this.lblTk_Hbtl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbtTen_Tk_Dthu
+            // 
+            this.lbtTen_Tk_Dthu.AutoEllipsis = true;
+            this.lbtTen_Tk_Dthu.AutoSize = true;
+            this.lbtTen_Tk_Dthu.BackColor = System.Drawing.Color.Transparent;
+            this.lbtTen_Tk_Dthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtTen_Tk_Dthu.ForeColor = System.Drawing.Color.Blue;
+            this.lbtTen_Tk_Dthu.Location = new System.Drawing.Point(263, 207);
+            this.lbtTen_Tk_Dthu.Name = "lbtTen_Tk_Dthu";
+            this.lbtTen_Tk_Dthu.Size = new System.Drawing.Size(93, 13);
+            this.lbtTen_Tk_Dthu.TabIndex = 116;
+            this.lbtTen_Tk_Dthu.Text = "Tên Tk doanh thu";
+            this.lbtTen_Tk_Dthu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtTk_Dthu
+            // 
+            this.txtTk_Dthu.bEnabled = true;
+            this.txtTk_Dthu.bIsLookup = false;
+            this.txtTk_Dthu.bReadOnly = false;
+            this.txtTk_Dthu.bRequire = false;
+            this.txtTk_Dthu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTk_Dthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTk_Dthu.KeyFilter = "";
+            this.txtTk_Dthu.Location = new System.Drawing.Point(138, 204);
+            this.txtTk_Dthu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.txtTk_Dthu.MaxLength = 20;
+            this.txtTk_Dthu.Name = "txtTk_Dthu";
+            this.txtTk_Dthu.Size = new System.Drawing.Size(120, 20);
+            this.txtTk_Dthu.TabIndex = 7;
+            this.txtTk_Dthu.UseAutoFilter = false;
+            // 
+            // lblTk_Dt
+            // 
+            this.lblTk_Dt.AutoEllipsis = true;
+            this.lblTk_Dt.AutoSize = true;
+            this.lblTk_Dt.BackColor = System.Drawing.Color.Transparent;
+            this.lblTk_Dt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTk_Dt.Location = new System.Drawing.Point(27, 207);
+            this.lblTk_Dt.Name = "lblTk_Dt";
+            this.lblTk_Dt.Size = new System.Drawing.Size(71, 13);
+            this.lblTk_Dt.TabIndex = 115;
+            this.lblTk_Dt.Tag = "Tk_Dt";
+            this.lblTk_Dt.Text = "Tk doanh thu";
+            this.lblTk_Dt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMa_Tuyen
             // 
@@ -1148,7 +1301,7 @@ namespace Epoint.Lists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 678);
+            this.ClientSize = new System.Drawing.Size(952, 759);
             this.Name = "frmDoiTuong_Edit";
             this.Object_ID = "LIDOITUONG";
             this.Tag = "ESC";
@@ -1229,5 +1382,14 @@ namespace Epoint.Lists
         private Systems.Controls.txtTextLookup txtLongitude;
         private Systems.Controls.txtTextLookup txtLatitude;
         private Systems.Controls.lblControl lblControl1;
+        private Systems.Controls.lblControl lbtTen_Tk_Hbtl;
+        private Systems.Controls.txtTextBox txtTk_Hbtl;
+        private Systems.Controls.lblControl lblTk_Hbtl;
+        private Systems.Controls.lblControl lbtTen_Tk_Dthu;
+        private Systems.Controls.txtTextBox txtTk_Dthu;
+        private Systems.Controls.lblControl lblTk_Dt;
+        private Systems.Controls.txtTextBox txtTk_Dt;
+        private Systems.Controls.lblControl lbtTen_Tk_Dt;
+        private Systems.Controls.lblControl lblTk_Gv;
     }
 }

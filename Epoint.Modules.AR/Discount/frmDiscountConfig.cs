@@ -497,11 +497,16 @@ namespace Epoint.Modules.AR
             string[] ValueAr;
 
             bool bRequire = true;
-            DataRow drLookup = Lookup.ShowMultiLookup("Ma_Dt",strValue,bRequire, "","");
+            DataRow drLookup = Lookup.ShowMultiLookupNew("Ma_Dt",strValue,bRequire, "","","");
             //DataRow drLookup = Lookup.ShowLookup(frmLookup, "SYSREPORT", "REPORT_ID", strValue, bRequire, "","","Stt");
-            strValueList = drLookup["MuiltiSelectValue"].ToString();
+            //strValueList = drLookup["MuiltiSelectValue"].ToString();
 
-
+            if (drLookup == null)
+                strValueList = string.Empty;
+            else
+            {
+                strValueList = drLookup["MuiltiSelectValue"].ToString();
+            }
             if (bRequire && drLookup == null)
             {
                 dtDiscCust.RejectChanges();

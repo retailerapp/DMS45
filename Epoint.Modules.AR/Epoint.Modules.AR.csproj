@@ -85,9 +85,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\0-Accounting\Epoint.Modules.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Reports, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Reports, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\E-DMS40\Epoint.Reports.dll</HintPath>
+      <HintPath>..\..\..\0-EpointERP\Epoint.Reports.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Systems, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -45,25 +45,25 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Epoint.Systems, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Systems, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epoint\Epoint.Systems.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Systems.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Systems.Commons, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Systems.Commons, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Projects\0-Accounting\Epoint.Systems.Commons.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Systems.Commons.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Systems.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Systems.Data, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epoint\Epoint.Systems.Data.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Systems.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Systems.Elements, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Systems.Elements, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epoint\Epoint.Systems.Elements.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Systems.Elements.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Systems.Librarys, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+    <Reference Include="Epoint.Systems.Librarys, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epoint\Epoint.Systems.Librarys.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Systems.Librarys.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

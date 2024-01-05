@@ -332,6 +332,7 @@ namespace Epoint.Modules
                 command.Parameters.AddWithValue("@Ma_Ct", "PTT");
                 command.Parameters.AddWithValue("@Tk_Tt", txtTk_Tt.Text);
                 command.Parameters.AddWithValue("@Ma_Dt", "");
+                command.Parameters.AddWithValue("@Dien_Giai", txtDien_Giai.Text);
                 command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
                 SqlParameter parameter = new SqlParameter
                 {

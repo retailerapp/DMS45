@@ -108,20 +108,20 @@ namespace Epoint.Lists
             // 
             // btgAccept
             // 
-            this.btgAccept.Location = new System.Drawing.Point(755, 718);
+            this.btgAccept.Location = new System.Drawing.Point(452, 718);
             this.btgAccept.Size = new System.Drawing.Size(181, 29);
             this.btgAccept.TabIndex = 1;
             // 
             // tabEdit
             // 
-            this.tabEdit.Size = new System.Drawing.Size(928, 710);
+            this.tabEdit.Size = new System.Drawing.Size(625, 710);
             this.tabEdit.TabIndex = 0;
             // 
             // Page1
             // 
             this.Page1.Controls.Add(this.grTitle1);
             this.Page1.Controls.Add(this.grTitle2);
-            this.Page1.Size = new System.Drawing.Size(920, 684);
+            this.Page1.Size = new System.Drawing.Size(617, 684);
             // 
             // Page2
             // 
@@ -775,7 +775,7 @@ namespace Epoint.Lists
             this.grTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grTitle2.Location = new System.Drawing.Point(21, 274);
             this.grTitle2.Name = "grTitle2";
-            this.grTitle2.Size = new System.Drawing.Size(559, 401);
+            this.grTitle2.Size = new System.Drawing.Size(537, 401);
             this.grTitle2.TabIndex = 1;
             this.grTitle2.TabStop = false;
             this.grTitle2.Text = "Thông tin khác";
@@ -1108,7 +1108,7 @@ namespace Epoint.Lists
             this.grTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grTitle1.Location = new System.Drawing.Point(21, 13);
             this.grTitle1.Name = "grTitle1";
-            this.grTitle1.Size = new System.Drawing.Size(789, 255);
+            this.grTitle1.Size = new System.Drawing.Size(537, 255);
             this.grTitle1.TabIndex = 0;
             this.grTitle1.TabStop = false;
             this.grTitle1.Text = "Đối tượng";
@@ -1301,7 +1301,7 @@ namespace Epoint.Lists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 759);
+            this.ClientSize = new System.Drawing.Size(649, 759);
             this.Name = "frmDoiTuong_Edit";
             this.Object_ID = "LIDOITUONG";
             this.Tag = "ESC";

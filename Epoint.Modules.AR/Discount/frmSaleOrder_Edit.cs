@@ -201,7 +201,10 @@ namespace Epoint.Modules.AR
                 dteNgay_Ct_Lap.Enabled = false;
             }
 
-
+            if (this.drDmDt != null && this.drDmDt.Table.Columns.Contains("Han_Tt"))
+            {
+                numHan_Tt.Value = Convert.ToDouble(this.drDmDt["Han_Tt"]);
+            }
 
             this.txtMa_Tte.bTextChange = false;
             this.numTy_Gia.bTextChange = false;
@@ -432,8 +435,13 @@ namespace Epoint.Modules.AR
             Voucher.Update_Stt(this, strModule);
 
             if (this.drEditPh["Ma_Dt"].ToString() != string.Empty)
+            {
                 this.drDmDt = DataTool.SQLGetDataRowByID("LIDOITUONG", "Ma_Dt", this.drEditPh["Ma_Dt"].ToString());
-
+                if (this.drDmDt.Table.Columns.Contains("Han_Tt"))
+                {
+                    numHan_Tt.Value = Convert.ToDouble(this.drDmDt["Han_Tt"]);
+                }
+            }
             if (dgvEditCt1.Columns.Contains("DVT"))
                 dgvEditCt1.Columns["DVT"].ReadOnly = true;
 

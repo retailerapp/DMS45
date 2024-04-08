@@ -29,15 +29,15 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportHD_View));
             this.dgvViewHD = new Epoint.Systems.Controls.dgvControl();
             this.txtFile_Name = new Epoint.Systems.Controls.txtTextBox();
             this.lblSo_Ct1 = new Epoint.Systems.Controls.lblControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btFile = new Epoint.Systems.Controls.btControl();
             this.btLoadData = new Epoint.Systems.Customizes.btPreview();
-            this.btThanhtoan = new Epoint.Systems.Customizes.btPreview();
+            this.btImportData = new Epoint.Systems.Customizes.btPreview();
+            this.btFile = new Epoint.Systems.Controls.btControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewHD)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -46,8 +46,8 @@
             // 
             this.dgvViewHD.AllowUserToAddRows = false;
             this.dgvViewHD.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvViewHD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvViewHD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvViewHD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -99,7 +99,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btLoadData);
-            this.groupBox1.Controls.Add(this.btThanhtoan);
+            this.groupBox1.Controls.Add(this.btImportData);
             this.groupBox1.Controls.Add(this.btFile);
             this.groupBox1.Controls.Add(this.txtFile_Name);
             this.groupBox1.Controls.Add(this.lblSo_Ct1);
@@ -109,20 +109,6 @@
             this.groupBox1.TabIndex = 89;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc";
-            // 
-            // btFile
-            // 
-            this.btFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFile.Image = ((System.Drawing.Image)(resources.GetObject("btFile.Image")));
-            this.btFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btFile.Location = new System.Drawing.Point(681, 14);
-            this.btFile.Name = "btFile";
-            this.btFile.Size = new System.Drawing.Size(41, 22);
-            this.btFile.TabIndex = 89;
-            this.btFile.Tag = "";
-            this.btFile.Text = "...";
-            this.btFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btFile.UseVisualStyleBackColor = true;
             // 
             // btLoadData
             // 
@@ -138,19 +124,33 @@
             this.btLoadData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btLoadData.UseVisualStyleBackColor = true;
             // 
-            // btThanhtoan
+            // btImportData
             // 
-            this.btThanhtoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThanhtoan.Image = ((System.Drawing.Image)(resources.GetObject("btThanhtoan.Image")));
-            this.btThanhtoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btThanhtoan.Location = new System.Drawing.Point(601, 39);
-            this.btThanhtoan.Name = "btThanhtoan";
-            this.btThanhtoan.Size = new System.Drawing.Size(121, 36);
-            this.btThanhtoan.TabIndex = 90;
-            this.btThanhtoan.Tag = "";
-            this.btThanhtoan.Text = "Xử lý";
-            this.btThanhtoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btThanhtoan.UseVisualStyleBackColor = true;
+            this.btImportData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btImportData.Image = ((System.Drawing.Image)(resources.GetObject("btImportData.Image")));
+            this.btImportData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btImportData.Location = new System.Drawing.Point(601, 39);
+            this.btImportData.Name = "btImportData";
+            this.btImportData.Size = new System.Drawing.Size(121, 36);
+            this.btImportData.TabIndex = 90;
+            this.btImportData.Tag = "";
+            this.btImportData.Text = "Xử lý";
+            this.btImportData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btImportData.UseVisualStyleBackColor = true;
+            // 
+            // btFile
+            // 
+            this.btFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFile.Image = ((System.Drawing.Image)(resources.GetObject("btFile.Image")));
+            this.btFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btFile.Location = new System.Drawing.Point(681, 14);
+            this.btFile.Name = "btFile";
+            this.btFile.Size = new System.Drawing.Size(41, 22);
+            this.btFile.TabIndex = 89;
+            this.btFile.Tag = "";
+            this.btFile.Text = "...";
+            this.btFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btFile.UseVisualStyleBackColor = true;
             // 
             // frmImportHD_View
             // 
@@ -177,7 +177,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Systems.Controls.btControl btFile;
         private Systems.Customizes.btPreview btLoadData;
-        private Systems.Customizes.btPreview btThanhtoan;
+        private Systems.Customizes.btPreview btImportData;
 
 	}
 }

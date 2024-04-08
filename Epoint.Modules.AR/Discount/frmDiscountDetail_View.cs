@@ -63,7 +63,15 @@ namespace Epoint.Modules.AR
 
             ShowDialog();
         }
+        public void Load()
+        {
 
+            Build();
+            FillData();
+            BindingLanguage();
+
+            ShowDialog();
+        }
         #endregion
 
         #region Build, FillData

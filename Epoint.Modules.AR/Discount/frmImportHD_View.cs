@@ -16,83 +16,102 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Data.Odbc;
 using System.IO;
+using DevExpress.Data.Filtering;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Epoint.Modules.AR
 {
-	public partial class frmImportHD_View : Epoint.Systems.Customizes.frmView
-	{
+    public partial class frmImportHD_View : Epoint.Systems.Customizes.frmView
+    {
 
-		#region Khai bao bien
-		public DataTable dtViewHD;
+        #region Khai bao bien
+        public DataTable dtViewHD;
         public DataTable dtImport = null;
+        public DataTable dtOrderHeader = new DataTable(), DtOrderDetail = new DataTable();
         public string strMa_Px = string.Empty;
         public string strMa_CbNv_GH = string.Empty;
-		BindingSource bdsViewHD = new BindingSource();
-        public DataTable dtVoucherSelect ;
-		//dgvControl dgvViewHD = new dgvControl();
+        public bool iChecked = true;
+        BindingSource bdsViewHD = new BindingSource();
+        public DataTable dtVoucherSelect;
+        //dgvControl dgvViewHD = new dgvControl();
 
-		string strMa_Ct = string.Empty;
-		string strKey = string.Empty;
-		frmVoucher_Edit frmEditCtHD;
+        string strMa_Ct = string.Empty;
+        string strKey = string.Empty;
+        frmVoucher_Edit frmEditCtHD;
         enuEdit enuNew_Edit;
 
-		#endregion
+        #endregion
 
-		#region Contructor
+        #region Contructor
 
         public frmImportHD_View()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
 
             //btgAccept.btAccept.Click += new EventHandler(btAccept_Click);
             //btgAccept.btCancel.Click += new EventHandler(btCancel_Click);
             btFile.Click += new EventHandler(btFile_Click);
             btLoadData.Click += new EventHandler(btLoadData_Click);
-            btThanhtoan.Click += new EventHandler(btThanhtoan_Click);
+            btImportData.Click += new EventHandler(btThanhtoan_Click);
 
             txtFile_Name.TextChanged += new EventHandler(txtSo_Ct_TextChanged);
             dgvViewHD.CellMouseClick += new DataGridViewCellMouseEventHandler(dgvViewHD_CellMouseClick);
-		}
+        }
 
-       
 
-        
 
-        
 
-        
 
-		public void Load()
-		{
+
+
+
+
+        public void Load()
+        {
             //this.frmEditCtHD = frmEditCtHD;
             //this.strMa_Ct = strMa_Ct;
             //this.strKey = strKey;
 
-			Build();
-			FillData();
-			BindingLanguage();
+            Build();
+            FillData();
+            BindingLanguage();
 
             this.Show();
-		}
-       
+        }
 
-		#endregion
 
-		#region Build, FillData
+        #endregion
 
-		private void Build()
-		{
+        #region Build, FillData
 
-           
+        private void Build()
+        {
+
+            dgvViewHD.strZone = "OM_DMSIMPORT_YENCHAU";
+            dgvViewHD.ReadOnly = true;
+
+
+            dgvViewHD.BuildGridView(this.isLookup);
+
+
+            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+            {
+                button.Name = "Detail";
+                button.HeaderText = "Detail";
+                button.Text = "Xem";
+                button.UseColumnTextForButtonValue = true; //dont forget this line
+                this.dgvViewHD.Columns.Add(button);
+            }
             //this.Controls.Add(dgvViewHD);
-		}
-       
-		private void FillData()
-		{
-			
-		}
-        
-		
+            btImportData.Enabled = false;
+        }
+
+        private void FillData()
+        {
+
+        }
+
+
 
         private void Save_PXKDetail(DataTable dtEditCt)
         {
@@ -195,9 +214,42 @@ namespace Epoint.Modules.AR
                 }
             }
         }
+        private void Save_OM_DetailPHYEN(DataTable dtEditCt)
+        {
+            if (true)
+            {
+
+
+                SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
+                command.CommandText = "SP_OM_ImportOrderYenChau";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
+                command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+                SqlParameter parameter = new SqlParameter
+                {
+                    SqlDbType = SqlDbType.Structured,
+                    ParameterName = "@Header",
+                    TypeName = "TVP_OM_DMSYENCHAU",
+                    Value = dtEditCt,
+                };
+                command.Parameters.Add(parameter);
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception exception)
+                {
+                    command.CommandText = "WHILE @@TRANCOUNT > 0 ROLLBACK TRANSACTION";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Clear();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Có lỗi xảy ra :" + exception.Message);
+                }
+            }
+        }
         void LoadDataExcel()
         {
-            
+
             try
             {
 
@@ -229,6 +281,8 @@ namespace Epoint.Modules.AR
 
 
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -237,11 +291,142 @@ namespace Epoint.Modules.AR
 
 
         }
+        void LoadDataExcelForYenChau()
+        {
 
+            try
+            {
+
+                DataTable dtExcel = new DataTable();
+                DataTable DtCheck = new DataTable();
+
+                dtOrderHeader = SQLExec.ExecuteReturnDt("DECLARE @T AS TVP_OM_DMSYENCHAU SELECT * FROM @T");
+                string cColumnNameList = "";
+                //foreach (DataColumn clName in dtImport.Columns)
+                //{
+                //    cColumnNameList += clName.ColumnName.ToString() + ",";
+                //}
+
+                dtExcel = Common.ReadExcel(txtFile_Name.Text);
+
+                SetdefaultOM(ref dtOrderHeader, dtExcel);
+
+
+
+                SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
+                command.CommandText = "OM_ValidateDataDMSOrderYenChau";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
+                command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+                SqlParameter pHeader = new SqlParameter
+                {
+                    SqlDbType = SqlDbType.Structured,
+                    ParameterName = "@Header",
+                    TypeName = "TVP_OM_DMSYENCHAU",
+                    Value = dtOrderHeader,
+                };
+                command.Parameters.Add(pHeader);
+                //SqlParameter pdetail = new SqlParameter
+                //{
+                //    SqlDbType = SqlDbType.Structured,
+                //    ParameterName = "@Detail",
+                //    TypeName = "TVP_OM_DMSOrdDetail",
+                //    Value = dtOrderDetail,
+                //};
+                //command.Parameters.Add(pdetail);
+                try
+                {
+                    using (SqlDataReader dr = command.ExecuteReader())
+                    {
+                        DtCheck.Load(dr);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    command.CommandText = "WHILE @@TRANCOUNT > 0 ROLLBACK TRANSACTION";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Clear();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Có lỗi xảy ra :" + exception.Message);
+                    return;
+                }
+                /////////// View detail
+                SqlCommand command1 = SQLExec.GetNewSQLConnection().CreateCommand();
+                command1.CommandText = "OM_GetDataDMSOrderDetailYenChau";
+                command1.CommandType = CommandType.StoredProcedure;
+                command1.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
+                command1.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+                SqlParameter pHeader1 = new SqlParameter
+                {
+                    SqlDbType = SqlDbType.Structured,
+                    ParameterName = "@Header",
+                    TypeName = "TVP_OM_DMSYENCHAU",
+                    Value = dtOrderHeader,
+                };
+                command1.Parameters.Add(pHeader1);             
+                try
+                {
+                    using (SqlDataReader dr1 = command1.ExecuteReader())
+                    {
+                        DtOrderDetail = new DataTable();
+                        DtOrderDetail.Load(dr1);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    command.CommandText = "WHILE @@TRANCOUNT > 0 ROLLBACK TRANSACTION";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Clear();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Có lỗi xảy ra :" + exception.Message);
+                    return;
+                }
+               //////////////View
+                if (DtCheck != null)
+                {
+                    bdsViewHD = new BindingSource();
+                    bdsViewHD.DataSource = DtCheck;
+                    dgvViewHD.DataSource = bdsViewHD;
+                    bdsViewHD.Position = 0;
+
+                    //Uy quyen cho lop co so tim kiem           
+                    bdsSearch = bdsViewHD;
+
+                    //dgvViewHD.ReadOnly = true;
+                    //dgvViewHD.BuildGridView(cColumnNameList);
+
+                    if (DtCheck.Rows.Count > 0)
+                    {
+
+                        if (DtCheck.Rows[0]["IsDataChecked"].ToString() == "NOTOK")
+                        {
+                            iChecked = false;
+                            //dtImport = dtOrderHeader;
+                            btImportData.Enabled = false;
+                        }
+                        else
+                        {
+                            dtImport = dtOrderHeader;
+                            btImportData.Enabled = true;
+                        }
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không mở được bảng dữ liệu " + txtFile_Name.Text + ex.Message);
+            }
+
+
+        }
         void LoadDataExcelM1()
         {
             string cColumnNameList = "";
-           
+
             string strConnectString =
                 "Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)};DBQ=" + txtFile_Name.Text;
 
@@ -389,7 +574,7 @@ namespace Epoint.Modules.AR
         }
 
 
-        void SetdefaultOM(ref DataTable dtImport,DataTable dtExcel)
+        void SetdefaultOM(ref DataTable dtImport, DataTable dtExcel)
         {
             foreach (DataRow dr in dtExcel.Rows)
             {
@@ -398,58 +583,61 @@ namespace Epoint.Modules.AR
                     DataRow drImport = dtImport.NewRow();
                     Common.CopyDataRow(dr, drImport);
 
-
-                    string str = dr["DNgay_Ct"].ToString();
-                    string[] format = { "yyyyMMdd" };
-                    DateTime date;
-                    if (DateTime.TryParseExact(str,
-                                               format,
-                                               System.Globalization.CultureInfo.InvariantCulture,
-                                               System.Globalization.DateTimeStyles.None,
-                                               out date))
+                    if (dtExcel.Columns.Contains("DNgay_Ct"))
                     {
-                        drImport["Ngay_Ct"] = date;
+                        string str = dr["DNgay_Ct"].ToString();
+                        string[] format = { "yyyyMMdd" };
+                        DateTime date;
+                        if (DateTime.TryParseExact(str,
+                                                   format,
+                                                   System.Globalization.CultureInfo.InvariantCulture,
+                                                   System.Globalization.DateTimeStyles.None,
+                                                   out date))
+                        {
+                            drImport["Ngay_Ct"] = date;
+                        }
                     }
-
-                    drImport["Tien2"] = drImport["Tien"];
-                    drImport["Tien9"] = Convert.ToDouble(drImport["Tien2"]) + Convert.ToDouble(drImport["Tien_Ck"]);
+                    if (dtExcel.Columns.Contains("Tien2"))
+                        drImport["Tien2"] = drImport["Tien"];
+                    if (dtExcel.Columns.Contains("Tien9"))
+                        drImport["Tien9"] = Convert.ToDouble(drImport["Tien2"]) + Convert.ToDouble(drImport["Tien_Ck"]);
 
                     dtImport.Rows.Add(drImport);
                 }
-              
+
             }
         }
         #endregion
 
-		#region Su kien
+        #region Su kien
 
-		protected override void OnKeyDown(KeyEventArgs e)
-		{
-			switch (e.KeyCode)
-			{
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
                 case Keys.Space:
                     DataRow drCurrent = ((DataRowView)bdsViewHD.Current).Row;
-                //    drCurrent["Chon"] = !(bool)drCurrent["Chon"];
+                    //    drCurrent["Chon"] = !(bool)drCurrent["Chon"];
                     break;
-			}
+            }
 
-			if (e.Control)
-			{
-				switch (e.KeyCode)
-				{
-					case Keys.A:
-						foreach (DataRow dr in dtViewHD.Rows)
-							dr["Chon"] = true;
-						break;
-					case Keys.U:
-						foreach (DataRow dr in dtViewHD.Rows)
-							dr["Chon"] = false;
-						break;
-				}
-			}
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        foreach (DataRow dr in dtViewHD.Rows)
+                            dr["Chon"] = true;
+                        break;
+                    case Keys.U:
+                        foreach (DataRow dr in dtViewHD.Rows)
+                            dr["Chon"] = false;
+                        break;
+                }
+            }
 
-			base.OnKeyDown(e);
-		}
+            base.OnKeyDown(e);
+        }
         void dgvViewHD_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex < 0 || e.RowIndex < 0)
@@ -465,21 +653,30 @@ namespace Epoint.Modules.AR
                 drCurrent["CHON"] = !Convert.ToBoolean(drCurrent["CHON"]);
                 drCurrent.AcceptChanges();
             }
+
+            if (e.ColumnIndex == dgvViewHD.Columns["Detail"].Index)
+            {
+                //Do something with your button.
+                string So_Ct = drCurrent["So_Ct"].ToString();
+                frmInvoiceImportDetail_View frm = new frmInvoiceImportDetail_View();
+                frm.Load(this.DtOrderDetail, So_Ct);
+
+            }
         }
 
         void txtSo_Ct_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
         void btAccept_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-		void btCancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        void btCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         void btFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -493,20 +690,29 @@ namespace Epoint.Modules.AR
                 txtFile_Name.Text = ofd.FileName;
 
             }
+
         }
         void btLoadData_Click(object sender, EventArgs e)
         {
-            //LoadDataExcelDiana();
-            if (File.Exists(@"C:\USERS\VANHU\DESKTOP\THDIANA.XLSX"))
-                txtFile_Name.Text = @"C:\USERS\VANHU\DESKTOP\THDIANA.XLSX";
+            ////LoadDataExcelDiana();
+            //if (File.Exists(@"C:\USERS\VANHU\DESKTOP\THDIANA.XLSX"))
+            //    txtFile_Name.Text = @"C:\USERS\VANHU\DESKTOP\THDIANA.XLSX";
 
-            LoadDataExcel();
+            if (!File.Exists(txtFile_Name.Text))
+            {
+                EpointMessage.MsgOk("File don hang ko ton tai");
+                return;
+            }
+            if (0 == 1)
+                LoadDataExcel();
+            else // test for YenChau
+                LoadDataExcelForYenChau();
         }
         void btThanhtoan_Click(object sender, EventArgs e)
         {
-            EpointProcessBox.Show(this);           
+            EpointProcessBox.Show(this);
 
-           
+
         }
 
         public override void EpointRelease()
@@ -514,10 +720,36 @@ namespace Epoint.Modules.AR
             if (dtImport == null || dtImport.Rows.Count == 0)
                 EpointProcessBox.AddMessage("Không có dữ liệu import");
             else
+                if (false)
                 Save_OM_Detail(dtImport);
+            else
+                Save_OM_DetailPHYEN(dtImport);
+
             EpointProcessBox.AddMessage("End");
 
         }
-		#endregion
-	}
+
+        public DataTable GetEntriesBySearch(string expression,  DataTable table)
+        {
+            DataTable list = null;
+            list = table;
+         
+            string sortOrder;
+            sortOrder = "";
+
+
+            DataRow[] rows = list.Select(expression, sortOrder);
+
+            list = null; // for testing
+            list = new DataTable(); // for testing
+
+            foreach (DataRow row in rows)
+            {
+                list.ImportRow(row);
+            }
+
+            return list;
+        }
+        #endregion
+    }
 }

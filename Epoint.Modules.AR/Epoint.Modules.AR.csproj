@@ -109,6 +109,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\0-Accounting\Epoint.Systems.Librarys.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -124,11 +127,23 @@
     <Compile Include="Discount\frmCheckCustCredit_View.Designer.cs">
       <DependentUpon>frmCheckCustCredit_View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Discount\frmInvoiceImportDetail_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discount\frmInvoiceImportDetail_View.Designer.cs">
+      <DependentUpon>frmInvoiceImportDetail_View.cs</DependentUpon>
+    </Compile>
     <Compile Include="Discount\frmDiscountManual.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Discount\frmDiscountManual.Designer.cs">
       <DependentUpon>frmDiscountManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discount\frmImportDMSOrder_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discount\frmImportDMSOrder_View.Designer.cs">
+      <DependentUpon>frmImportDMSOrder_View.cs</DependentUpon>
     </Compile>
     <Compile Include="Discount\frmPJP_Import.cs">
       <SubType>Form</SubType>
@@ -339,9 +354,15 @@
     <EmbeddedResource Include="Discount\frmCheckCustCredit_View.resx">
       <DependentUpon>frmCheckCustCredit_View.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Discount\frmInvoiceImportDetail_View.resx">
+      <DependentUpon>frmInvoiceImportDetail_View.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Discount\frmDiscountManual.resx">
       <DependentUpon>frmDiscountManual.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discount\frmImportDMSOrder_View.resx">
+      <DependentUpon>frmImportDMSOrder_View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discount\frmPJP_Import.resx">
       <DependentUpon>frmPJP_Import.cs</DependentUpon>

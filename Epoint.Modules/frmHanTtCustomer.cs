@@ -158,6 +158,7 @@ namespace Epoint.Modules
             htSQLPara.Add("MA_PX", txtMa_Px.Text);
             htSQLPara.Add("TK", "1311");
             htSQLPara.Add("MA_DT", txtMa_Dt.Text);
+            htSQLPara.Add("MA_NH_DT", txtMa_Nh_Dt.Text);
             htSQLPara.Add("MA_CBNV_BH", txtMa_CbNV_BH.Text);
             htSQLPara.Add("MA_CBNV_GH", txtMa_CbNV_GH.Text);
             htSQLPara.Add("STT_PT", "");

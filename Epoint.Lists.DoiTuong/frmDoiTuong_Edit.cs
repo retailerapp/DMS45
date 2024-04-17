@@ -55,7 +55,8 @@ namespace Epoint.Lists
                     Common.CopyDataRow(temp, drEdit);
 
                 Common.CopyDataRow(drCurrent, drEdit);
-                drEdit["Ma_Dt"] = GetNewID(drEdit["Ma_Dt"].ToString());
+                if(!drCurrent.Table.Columns.Contains("IsNew"))
+                    drEdit["Ma_Dt"] = GetNewID(drEdit["Ma_Dt"].ToString());
             }
 
             if (enuNew_Edit == enuEdit.New && drEdit.Table.Columns.Contains("Tien_No_Max"))

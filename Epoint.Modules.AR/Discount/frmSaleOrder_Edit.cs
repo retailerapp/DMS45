@@ -3938,6 +3938,7 @@ namespace Epoint.Modules.AR
                 {
                     this.dteNgay_Ct.Enabled = false;
                     this.btgAccept.btAccept.Enabled = false;
+                    this.ucNotice.SetText("Data Lock Date");
                 }
                 // Không cho chinh sửa khi tạo PXK
                 //if (drEditPh["So_Ct_Lap"].ToString() != string.Empty && drEditPh["Ma_Ct"].ToString() == "IN")
@@ -3953,6 +3954,7 @@ namespace Epoint.Modules.AR
                     //this.dgvEditCt2.ReadOnly = false;
                     //this.dgvEditCt1.Enabled = false;
                     this.btgAccept.btAccept.Enabled = false;
+                    this.ucNotice.SetText("Data Lock Payment");
                     this.Is_CtEdit = false;
                 }
 
@@ -3969,6 +3971,7 @@ namespace Epoint.Modules.AR
                             if (!strUser_Allow.Contains(strCreate_User.Substring(14) + ","))
                             {
                                 this.btgAccept.btAccept.Enabled = false;
+                                this.ucNotice.SetText("Data Lock Permission");
                                 this.dgvEditCt1.ReadOnly = true;
                                 this.Is_CtEdit = false;
                                 return;

@@ -93,84 +93,91 @@ namespace Epoint.Modules
 
         public void Load(string strMa_Ct_List)
         {
-            this.strMa_Ct_List = strMa_Ct_List;
-            this.Object_ID = strMa_Ct_List;
-            this.strMa_Kho_Access_List = SQLExec.ExecuteReturnValue("  SELECT TOP 1 Ma_Kho_Access  FROM SYSMEMBER WHERE Member_ID = '" + Element.sysUser_Id + "'").ToString();
-
-            if (Common.Inlist(this.strMa_Ct_List, "IN,INT,SC"))
+            try
             {
-                this.IsDmsInvoice = true;
-                btImport.Visible = true;
-            }
+                this.strMa_Ct_List = strMa_Ct_List;
+                this.Object_ID = strMa_Ct_List;
+                this.strMa_Kho_Access_List = SQLExec.ExecuteReturnValue("  SELECT TOP 1 Ma_Kho_Access  FROM SYSMEMBER WHERE Member_ID = '" + Element.sysUser_Id + "'").ToString();
 
-            this.Build();
-
-            object objNgay_CtMax = SQLExec.ExecuteReturnValue("SELECT TOP 1 (Ngay_Ct) FROM " + (string)drDmCt["Table_Ph"] + " WHERE Ma_Ct LIKE '" + this.strMa_Ct_List.Split(',')[0] + "' AND Ma_DvCs = '" + Element.sysMa_DvCs + "' ORDER BY Ngay_Ct DESC");
-            int iInterval = Convert.ToInt32(Parameters.GetParaValue("DAY_FILTER"));
-            string sYear = Convert.ToString(Parameters.GetParaValue("YEAR_FILTER"));
-            string sMonth = Convert.ToString(Parameters.GetParaValue("MONTH_FILTER"));
-
-            DateTime dteNgay_Ct2 = objNgay_CtMax == null || objNgay_CtMax == DBNull.Value ? DateTime.Now : (DateTime)objNgay_CtMax;
-            DateTime dteNgay_Ct1 = dteNgay_Ct2.Subtract(new TimeSpan(iInterval, 0, 0, 0));
-
-            string strFilterKey = string.Empty;
-            strFilterKey += "(Ma_Ct IN ('" + strMa_Ct_List.Replace(",", "','") + "'))";
-
-            //Thông: Hiển thị chứng từ theo năm hoặc theo ngày
-            if (sYear == "1")
-                strFilterKey += " AND (YEAR(Ngay_Ct) =  " + Element.sysWorkingYear + ")";
-            else
-                strFilterKey += " AND (Ngay_Ct BETWEEN  '" + Library.DateToStr(dteNgay_Ct1) + "' AND '" + Library.DateToStr(dteNgay_Ct2) + "')";
-
-            if (sMonth == "1")
-                strFilterKey += " AND (MONTH(Ngay_Ct) =  " + DateTime.Now.Month + ") ";
-
-            strFilterKey += " AND (Ma_DvCs = '" + Element.sysMa_DvCs + "')";
-
-            //strFilterKey_Old -> btBack
-            strFilterKey_Old = strFilterKey;
-
-            if (Common.Inlist(strMa_Ct_List, "BG,SO"))
-            {
-                this.FillDataBG(strFilterKey, strFilterKey);
-            }
-            else if (this.IsDmsInvoice)
-            {
-                this.FillData_OM(strFilterKey, strFilterKey);
-                btnPXK.Visible = true;
-                btDiscoutDetail.Visible = true;
-
-                if (strMa_Ct_List == "INT")
+                if (Common.Inlist(this.strMa_Ct_List, "IN,INT,SC"))
                 {
-                    btnPXK.AutoSize = true;
-                    btnPXK.Text = "Xác nhận trả";
+                    this.IsDmsInvoice = true;
+                    btImport.Visible = true;
                 }
+
+                this.Build();
+
+                object objNgay_CtMax = SQLExec.ExecuteReturnValue("SELECT TOP 1 (Ngay_Ct) FROM " + (string)drDmCt["Table_Ph"] + " WHERE Ma_Ct LIKE '" + this.strMa_Ct_List.Split(',')[0] + "' AND Ma_DvCs = '" + Element.sysMa_DvCs + "' ORDER BY Ngay_Ct DESC");
+                int iInterval = Convert.ToInt32(Parameters.GetParaValue("DAY_FILTER"));
+                string sYear = Convert.ToString(Parameters.GetParaValue("YEAR_FILTER"));
+                string sMonth = Convert.ToString(Parameters.GetParaValue("MONTH_FILTER"));
+
+                DateTime dteNgay_Ct2 = objNgay_CtMax == null || objNgay_CtMax == DBNull.Value ? DateTime.Now : (DateTime)objNgay_CtMax;
+                DateTime dteNgay_Ct1 = dteNgay_Ct2.Subtract(new TimeSpan(iInterval, 0, 0, 0));
+
+                string strFilterKey = string.Empty;
+                strFilterKey += "(Ma_Ct IN ('" + strMa_Ct_List.Replace(",", "','") + "'))";
+
+                //Thông: Hiển thị chứng từ theo năm hoặc theo ngày
+                if (sYear == "1")
+                    strFilterKey += " AND (YEAR(Ngay_Ct) =  " + Element.sysWorkingYear + ")";
+                else
+                    strFilterKey += " AND (Ngay_Ct BETWEEN  '" + Library.DateToStr(dteNgay_Ct1) + "' AND '" + Library.DateToStr(dteNgay_Ct2) + "')";
+
+                if (sMonth == "1")
+                    strFilterKey += " AND (MONTH(Ngay_Ct) =  " + DateTime.Now.Month + ") ";
+
+                strFilterKey += " AND (Ma_DvCs = '" + Element.sysMa_DvCs + "')";
+
+                //strFilterKey_Old -> btBack
+                strFilterKey_Old = strFilterKey;
+
+                if (Common.Inlist(strMa_Ct_List, "BG,SO"))
+                {
+                    this.FillDataBG(strFilterKey, strFilterKey);
+                }
+                else if (this.IsDmsInvoice)
+                {
+                    this.FillData_OM(strFilterKey, strFilterKey);
+                    btnPXK.Visible = true;
+                    btDiscoutDetail.Visible = true;
+
+                    if (strMa_Ct_List == "INT")
+                    {
+                        btnPXK.AutoSize = true;
+                        btnPXK.Text = "Xác nhận trả";
+                    }
+                }
+                else if (Common.Inlist(strMa_Ct_List, "PTT"))
+                {
+                    this.FillData(strFilterKey, strFilterKey);
+                    btnPXK.Visible = true;
+                    btnPXK.AutoSize = true;
+                    btnPXK.Text = "Hủy Thanh Toán";
+                }
+                else
+                    this.FillData(strFilterKey, strFilterKey);
+                this.BindingLanguage();
+                this.BindingTong_Tien();
+
+                //if (strMa_Ct_List == "PC")
+                //    this.dgvViewPh.FormatCell = false;
+                //string strMa_Ct_Access = SQLExec.ExecuteReturnValue("SELECT Ma_Ct_Access FROM SYSMEMBER WHERE Member_ID = '" + Element.sysUser_Id + "' AND MEMBER_TYPE = 'U'").ToString();
+                //if (!Element.sysIs_Admin)
+                //    if (Common.Inlist(strMa_Ct_List, strMa_Ct_Access))
+                //    if (!Common.CheckPermission("ACCESS_PRICE", enuPermission_Type.Allow_Access))
+                //    {
+                //        dgvViewCt.Columns["GIA_NT9"].Visible = false;
+                //        dgvViewCt.Columns["TIEN_NT9"].Visible = false;
+                //        dgvViewPh.Columns["TTIEN"].Visible = false;
+                //    }
+              
             }
-            else if (Common.Inlist(strMa_Ct_List, "PTT"))
+            catch(Exception ex)
             {
-                this.FillData(strFilterKey, strFilterKey);
-                btnPXK.Visible = true;
-                btnPXK.AutoSize = true;
-                btnPXK.Text = "Hủy Thanh Toán";
+                EpointMessage.MsgOk(ex.Message);
             }
-            else
-                this.FillData(strFilterKey, strFilterKey);
-            this.BindingLanguage();
-            this.BindingTong_Tien();
-
-            //if (strMa_Ct_List == "PC")
-            //    this.dgvViewPh.FormatCell = false;
-            //string strMa_Ct_Access = SQLExec.ExecuteReturnValue("SELECT Ma_Ct_Access FROM SYSMEMBER WHERE Member_ID = '" + Element.sysUser_Id + "' AND MEMBER_TYPE = 'U'").ToString();
-            //if (!Element.sysIs_Admin)
-            //    if (Common.Inlist(strMa_Ct_List, strMa_Ct_Access))
-            //    if (!Common.CheckPermission("ACCESS_PRICE", enuPermission_Type.Allow_Access))
-            //    {
-            //        dgvViewCt.Columns["GIA_NT9"].Visible = false;
-            //        dgvViewCt.Columns["TIEN_NT9"].Visible = false;
-            //        dgvViewPh.Columns["TTIEN"].Visible = false;
-            //    }
             this.FormLayout();
-
             this.Show();
         }
 

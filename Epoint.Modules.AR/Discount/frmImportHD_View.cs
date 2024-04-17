@@ -214,7 +214,7 @@ namespace Epoint.Modules.AR
                 }
             }
         }
-        private void Save_OM_DetailPHYEN(DataTable dtEditCt)
+        private bool Save_OM_DetailPHYEN(DataTable dtEditCt)
         {
             if (true)
             {
@@ -236,6 +236,7 @@ namespace Epoint.Modules.AR
                 try
                 {
                     command.ExecuteNonQuery();
+                    return true;
                 }
                 catch (Exception exception)
                 {
@@ -244,8 +245,10 @@ namespace Epoint.Modules.AR
                     command.Parameters.Clear();
                     command.ExecuteNonQuery();
                     MessageBox.Show("Có lỗi xảy ra :" + exception.Message);
+                    return false;
                 }
             }
+            return false;
         }
         void LoadDataExcel()
         {
@@ -409,6 +412,32 @@ namespace Epoint.Modules.AR
                             dtImport = dtOrderHeader;
                             btImportData.Enabled = true;
                         }
+                        /*
+
+                        // Update Status 
+                        
+                        DataRow[] drCheckDataList = DtCheck.Select("CHON = 0");
+                        foreach (DataRow drCheckData in drCheckDataList)
+                        {
+
+                            string So_Ct = drCheckData["So_Ct"].ToString();
+                            string Ma_Dt = drCheckData["Ma_Dt"].ToString();
+
+
+                            for (int i = this.dtOrderHeader.Rows.Count - 1; i>= 0; i--)
+                            {
+                                if (this.dtOrderHeader.Rows[i]["So_Ct"].ToString() == So_Ct && this.dtOrderHeader.Rows[i]["Ma_Dt"].ToString() == Ma_Dt)
+                                    dtOrderHeader.Rows.RemoveAt(i);
+                            }
+                            //foreach(DataRow drDataImport in this.dtOrderHeader.Rows) 
+                            //{
+                            //    if (drDataImport["So_Ct"].ToString() == So_Ct && drDataImport["Ma_Dt"].ToString() == Ma_Dt)
+                            //        dtOrderHeader.Rows.Remove(drDataImport);
+                            //}
+                        }
+                        */
+
+
                     }
 
 
@@ -717,16 +746,18 @@ namespace Epoint.Modules.AR
 
         public override void EpointRelease()
         {
+            bool IsSuccess = true;
             if (dtImport == null || dtImport.Rows.Count == 0)
                 EpointProcessBox.AddMessage("Không có dữ liệu import");
             else
                 if (false)
                 Save_OM_Detail(dtImport);
             else
-                Save_OM_DetailPHYEN(dtImport);
+                IsSuccess = Save_OM_DetailPHYEN(dtImport);
 
-            EpointProcessBox.AddMessage("End");
+            EpointProcessBox.AddMessage("Kết thúc import dữ liệu!");
 
+            btLoadData.Enabled = false;
         }
 
         public DataTable GetEntriesBySearch(string expression,  DataTable table)

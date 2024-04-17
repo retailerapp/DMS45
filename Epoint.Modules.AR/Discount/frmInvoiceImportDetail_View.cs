@@ -56,21 +56,42 @@ namespace Epoint.Modules.AR
             this.strSo_Ct = strSo_Ct;
             this.dtListInvoice = dtListInvoice;
             this.Ngay_Ct = Ngay_Ct;
-            Build();
+            BuildForYenChau();
             FillData();
             BindingLanguage();
 
             ShowDialog();
         }
+        public void Load(DataTable dtListInvoice, string strSo_Ct,string columnName)
+        {
 
+            //this.strMa_Ct = strMa_Ct;
+            this.strSo_Ct = strSo_Ct;
+            this.dtListInvoice = dtListInvoice;
+            this.Ngay_Ct = Ngay_Ct;
+            Build();
+            FillData(columnName);
+            BindingLanguage();
+
+            ShowDialog();
+        }
         #endregion
 
         #region Build, FillData
 
-        private void Build()
+        private void BuildForYenChau()
         {
             dgvViewHD.strZone = "OM_INVOICRDETAIL";
             dgvViewHD.ReadOnly = true;
+            dgvViewHD.BuildGridView(this.isLookup);
+            dgvViewHD.Dock = DockStyle.Fill;
+            this.ListOrder.Controls.Add(dgvViewHD);
+        }
+        private void Build()
+        {
+            dgvViewHD.strZone = "OM_INVOICRDETAIL_01";
+            dgvViewHD.ReadOnly = true;
+            dgvViewHD.BuildGridView(this.isLookup);
             dgvViewHD.BuildGridView(this.isLookup);
             dgvViewHD.Dock = DockStyle.Fill;
             this.ListOrder.Controls.Add(dgvViewHD);
@@ -96,6 +117,43 @@ namespace Epoint.Modules.AR
                 }
 
                
+
+            }
+            catch (Exception exception)
+            {
+                EpointMessage.MsgOk(exception.Message);
+            }
+            bdsViewHD.DataSource = dtViewHD;
+            dgvViewHD.DataSource = bdsViewHD;
+
+            bdsViewHD.Position = 0;
+
+            //Uy quyen cho lop co so tim kiem           
+            bdsSearch = bdsViewHD;
+
+
+        }
+        private void FillData(string ColumnName)
+        {
+            bdsViewHD = new BindingSource();
+
+            //DataRow drDmCt = DataTool.SQLGetDataRowByID("SYSDMCT", "Ma_Ct", strSo_Ct);
+            //string strTable_Ct = (string)drDmCt["Table_Ct"];
+
+            //dtViewHD = GetDiscountDetail();
+
+            dtViewHD = this.dtListInvoice.Clone();
+            try
+            {
+                DataRow[] dr = this.dtListInvoice.Select(ColumnName + " = '" + this.strSo_Ct + "'");
+                foreach (DataRow dr2 in dr)
+                {
+
+                    dtViewHD.ImportRow(dr2);
+                    dtViewHD.AcceptChanges();
+                }
+
+
 
             }
             catch (Exception exception)

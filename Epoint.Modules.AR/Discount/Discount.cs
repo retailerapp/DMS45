@@ -543,6 +543,7 @@ namespace Epoint.Modules.AR
 
                 DataRow drDisc = frmEditCt.dtEditCtDisc.NewRow();
                 drDisc["Stt0"] = drEditCt["Stt0"];
+
                 drDisc["Ma_CTKM"] = Ma_Ct_CKHD;
                 drDisc["Stt_Km"] = "CKHO001";
                 drDisc["Tien4_Org"] = dbTien_Ck_M4;

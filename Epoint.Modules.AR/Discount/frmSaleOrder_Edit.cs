@@ -3814,6 +3814,8 @@ namespace Epoint.Modules.AR
                     }
 
 
+
+
                 }
                 else
                 {
@@ -3878,7 +3880,29 @@ namespace Epoint.Modules.AR
                         Calc_Thue_Vat(drCurrent);
                     }
                 }
+              // Get Tk_Gv from LiKho
+               string strMa_Kho = drCurrent["Ma_Kho"] == DBNull.Value ? string.Empty : (string)drCurrent["Ma_Kho"];
+               DataRow drKho = DataTool.SQLGetDataRowByID("LIKHO", "Ma_Kho", strMa_Kho);
+
+                if (drKho == null)
+                {
+                   
+                }
+                else
+                {                   
+
+                    if (drKho.Table.Columns.Contains("Tk_Gv") && drKho["Tk_Gv"].ToString() != string.Empty)
+                        if ((string)drDmCt["Nh_Ct"] == "1")
+                        {
+                            drCurrent["Tk_Co"] = drKho["Tk_Gv"].ToString();
+                        }
+                        else
+                        {
+                            drCurrent["Tk_No"] = drKho["Tk_Gv"].ToString();
+                        }
+                }
             }
+
             return true;
         }
 

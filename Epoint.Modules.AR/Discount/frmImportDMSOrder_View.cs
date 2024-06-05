@@ -113,7 +113,7 @@ namespace Epoint.Modules.AR
             {
 
 
-                
+
 
                 SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
                 command.CommandText = "OM_ValidateDataDMSOrder";
@@ -153,7 +153,7 @@ namespace Epoint.Modules.AR
                     TypeName = "TVP_OM_DMSDiscountDetail",
                     Value = this.dtOrderDetailDiscount,
                 };
-                command.Parameters.Add(pDiscount);             
+                command.Parameters.Add(pDiscount);
                 try
                 {
                     command.ExecuteNonQuery();
@@ -180,6 +180,7 @@ namespace Epoint.Modules.AR
 
             dtFilter.Columns.Add(new DataColumn("MaDonHang", typeof(string)));
             dtFilter.Columns.Add(new DataColumn("Ma_Dvcs", typeof(string)));
+            string strKhoListAccess = DataTool.SQLGetNameByCode("SYSMember", "Member_ID", "Ma_Kho_Access", Element.sysUser_Id);
 
             try
             {
@@ -188,7 +189,7 @@ namespace Epoint.Modules.AR
                 this.dtOrderDetailDiscount = SQLExec.ExecuteReturnDt("DECLARE @T AS TVP_OM_DMSDiscountDetail SELECT * FROM @T");
                 this.dtOrderDetailPromotion = SQLExec.ExecuteReturnDt("DECLARE @T AS TVP_OM_DMSPromotionDetail SELECT * FROM @T");
 
-              
+
                 string Parram = APIKey + Library.StrToDate(dteNgay_BD.Text).ToString("dd-MM-yyyy") + "/" + Library.StrToDate(dteNgay_Kt.Text).ToString("dd-MM-yyyy");
 
                 WebRequest request = WebRequest.Create(URLString + Parram);
@@ -211,6 +212,16 @@ namespace Epoint.Modules.AR
                     drNew["So_Ct"] = header.SoDonHang;
                     drNew["Loai_Ct"] = header.LoaiDonHang;
                     drNew["Ma_Kho"] = header.MaKho;
+                    if (strKhoListAccess.Trim() != string.Empty)
+                    {
+
+                        DataRow drKho = DataTool.SQLGetDataRowByID("LIKHO", "DMSBranchCode", header.MaKho);
+                        if (drKho != null && !Common.Inlist(drKho["Ma_Kho"].ToString(), strKhoListAccess))
+                        {
+                            continue;
+                        }
+                    }
+
                     drNew["Ngay_Ct"] = header.NgayDonHang;
                     drNew["Ma_Dt"] = header.MaKhachHang;
                     DataRow drDoituong = DataTool.SQLGetDataRowByID("LIDOITUONG", "Ma_Dt", header.MaKhachHang);
@@ -222,6 +233,7 @@ namespace Epoint.Modules.AR
                         drDoituongNew["Ong_Ba"] = header.TenKhachHang;
                         drDoituongNew["Dia_Chi"] = header.DiaChiKhachHang;
                         drDoituongNew["So_Phone"] = header.DienThoaiKhachHang;
+                        drDoituongNew["Ma_CbNv_BH"] = header.NhanVienBanHang;
                         dtDoiTuongCheck.Rows.Add(drDoituongNew);
                         dtDoiTuongCheck.AcceptChanges();
                         drNew["Ten_Dt"] = header.TenKhachHang;
@@ -272,7 +284,7 @@ namespace Epoint.Modules.AR
                         drNewDetailPromotion["Ma_Kho"] = ctPromotion.MaKho;
                         drNewDetailPromotion["Dvt"] = ctPromotion.Dvt;
                         drNewDetailPromotion["He_So"] = ctPromotion.HeSoQuyDoi;
-                        drNewDetailPromotion["So_Luong"] = ctPromotion.SoLuong;
+                        drNewDetailPromotion["So_Luong"] = ctPromotion.SoLuongKM;
                         drNewDetailPromotion["Ma_CtKM"] = ctPromotion.MaChuongTrinhKm;
                         dtOrderDetailPromotion.Rows.Add(drNewDetailPromotion);
                         //MessageBox.Show($"  MaHang: {chitiet.MaHang}, Dvt: {chitiet.Dvt}, SoLuong: {chitiet.SoLuong}, Gia: {chitiet.Gia}, Tien: {chitiet.Tien}");
@@ -401,7 +413,7 @@ namespace Epoint.Modules.AR
 
 
                 }
-               
+
                 //// Them KH moi
                 if (dtDoiTuongCheck.Rows.Count > 0)
                 {
@@ -505,7 +517,7 @@ namespace Epoint.Modules.AR
 
                 DataTable DtDetail = this.dtOrderDetail.Copy();
                 DtDetail.Columns.Add(new DataColumn("TIEN4", typeof(decimal)));
-                DataRow[] drFilterByMaDonHang = DtDetail.Select( "MaDonHang = '" + MaDonHang + "'");
+                DataRow[] drFilterByMaDonHang = DtDetail.Select("MaDonHang = '" + MaDonHang + "'");
                 DataTable dtDetail0 = DtDetail.Clone();
                 foreach (DataRow dr2 in drFilterByMaDonHang)
                 {
@@ -514,8 +526,8 @@ namespace Epoint.Modules.AR
 
                     object sumObject;
                     sumObject = this.dtOrderDetailDiscount.Compute("Sum(Tien)", filter);
-                   string tienCk = sumObject.ToString();
-                    if(tienCk != string.Empty)
+                    string tienCk = sumObject.ToString();
+                    if (tienCk != string.Empty)
                     {
                         dr2["TIEN4"] = Convert.ToDecimal(tienCk);
                     }
@@ -526,7 +538,7 @@ namespace Epoint.Modules.AR
 
 
                 frmInvoiceImportDetail_View frm = new frmInvoiceImportDetail_View();
-                frm.Load(dtDetail0, MaDonHang, "MaDonHang");
+                frm.Load(dtDetail0, this.dtOrderDetailPromotion, MaDonHang, "MaDonHang");
 
             }
         }
@@ -633,7 +645,7 @@ namespace Epoint.Modules.AR
         public string MaKho { get; set; }
         public string Dvt { get; set; }
         public string MaChuongTrinhKm { get; set; }
-        public decimal SoLuong { get; set; }
+        public decimal SoLuongKM { get; set; }
         public decimal HeSoQuyDoi { get; set; }
 
     }

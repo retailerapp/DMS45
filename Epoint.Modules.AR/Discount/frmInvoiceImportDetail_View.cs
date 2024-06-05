@@ -31,7 +31,7 @@ namespace Epoint.Modules.AR
         public string strStt = string.Empty;
         public string strMa_Px = string.Empty;
         BindingSource bdsViewHD = new BindingSource();
-        DataTable dtListInvoice;
+        DataTable dtListInvoice, dtListPromotion;
         public DataTable dtStockAvail;
         DateTime Ngay_Ct;
         #endregion
@@ -62,12 +62,26 @@ namespace Epoint.Modules.AR
 
             ShowDialog();
         }
-        public void Load(DataTable dtListInvoice, string strSo_Ct,string columnName)
+        public void Load(DataTable dtListInvoice, string strSo_Ct, string columnName)
         {
 
             //this.strMa_Ct = strMa_Ct;
             this.strSo_Ct = strSo_Ct;
             this.dtListInvoice = dtListInvoice;
+            this.Ngay_Ct = Ngay_Ct;
+            Build();
+            FillData(columnName);
+            BindingLanguage();
+
+            ShowDialog();
+        }
+        public void Load(DataTable dtListInvoice, DataTable dtPromotiondetail, string strSo_Ct, string columnName)
+        {
+
+            //this.strMa_Ct = strMa_Ct;
+            this.strSo_Ct = strSo_Ct;
+            this.dtListInvoice = dtListInvoice;
+            this.dtListPromotion = dtPromotiondetail;
             this.Ngay_Ct = Ngay_Ct;
             Build();
             FillData(columnName);
@@ -105,18 +119,19 @@ namespace Epoint.Modules.AR
             //string strTable_Ct = (string)drDmCt["Table_Ct"];
 
             //dtViewHD = GetDiscountDetail();
-           
+
             dtViewHD = this.dtListInvoice.Clone();
             try
-            { 
-                DataRow []dr = this.dtListInvoice.Select("So_Ct = '" + this.strSo_Ct + "'");
-                foreach(DataRow dr2 in dr) {
+            {
+                DataRow[] dr = this.dtListInvoice.Select("So_Ct = '" + this.strSo_Ct + "'");
+                foreach (DataRow dr2 in dr)
+                {
 
                     dtViewHD.ImportRow(dr2);
                     dtViewHD.AcceptChanges();
                 }
 
-               
+
 
             }
             catch (Exception exception)
@@ -153,7 +168,24 @@ namespace Epoint.Modules.AR
                     dtViewHD.AcceptChanges();
                 }
 
-
+                if (this.dtListPromotion != null)
+                {
+                    DataRow[] drProm = this.dtListPromotion.Select(ColumnName + " = '" + this.strSo_Ct + "'");
+                    foreach (DataRow drpro2 in drProm)
+                    {
+                        DataRow drPromo = dtViewHD.NewRow();
+                        Common.SetDefaultDataRow(ref drPromo);
+                        drPromo["MaDonHang"] = drpro2["MaDonHang"];
+                        drPromo["Ma_Vt"] = drpro2["Ma_Vt"]; 
+                        drPromo["So_Luong"] = drpro2["So_Luong"];
+                        drPromo["Dvt"] = drpro2["Dvt"];
+                        DataRow drvattu = DataTool.SQLGetDataRowByID("LIVATTU", "Ma_Vt", drpro2["Ma_Vt"].ToString());
+                        drPromo["Ten_Vt"] = drvattu != null ? drvattu["Ten_Vt"] : "Not ok";                        
+                        //drPromo["Ma_Ctkm"] = drpro2["Ma_Ctkm"];
+                        dtViewHD.Rows.Add(drPromo);
+                        dtViewHD.AcceptChanges();
+                    }
+                }
 
             }
             catch (Exception exception)

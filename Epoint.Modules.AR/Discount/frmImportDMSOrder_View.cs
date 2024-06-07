@@ -43,6 +43,7 @@ namespace Epoint.Modules.AR
         string URLString = @"http://103.160.5.28:8082/api/getorderdetails";
         //string URLString = @"http://103.160.5.28:8082/api/getorderdetails/01-02-2024/29-02-2024";
         string APIKey = "/a34f1e9d13d55f5b1eaf48e84aace18d/";
+        string strLog = string.Empty;
         #endregion
 
         #region Contructor
@@ -198,7 +199,7 @@ namespace Epoint.Modules.AR
                 Stream iDataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(iDataStream);
                 string jsonString = reader.ReadToEnd();
-
+                this.strLog = jsonString;
                 //XmlDocument Voucher = new XmlDocument();
                 //Voucher.LoadXml(json);
                 dynamic JsonHeader = JsonConvert.DeserializeObject(jsonString);
@@ -491,7 +492,11 @@ namespace Epoint.Modules.AR
                         break;
                 }
             }
-
+            else if (e.KeyCode == Keys.F10)
+            {
+                frmAPILog log = new frmAPILog();
+                log.Load(strLog);
+            }
             base.OnKeyDown(e);
         }
         void dgvViewHD_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

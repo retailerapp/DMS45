@@ -127,6 +127,12 @@
     <Compile Include="Discount\frmCheckCustCredit_View.Designer.cs">
       <DependentUpon>frmCheckCustCredit_View.cs</DependentUpon>
     </Compile>
+    <Compile Include="Discount\frmAPILog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discount\frmAPILog.Designer.cs">
+      <DependentUpon>frmAPILog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Discount\frmInvoiceImportCustomer_View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Discount\frmCheckCustCredit_View.resx">
       <DependentUpon>frmCheckCustCredit_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discount\frmAPILog.resx">
+      <DependentUpon>frmAPILog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Discount\frmInvoiceImportCustomer_View.resx">
       <DependentUpon>frmInvoiceImportCustomer_View.cs</DependentUpon>

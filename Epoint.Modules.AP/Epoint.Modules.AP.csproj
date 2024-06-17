@@ -10,10 +10,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Epoint.Modules.AP</RootNamespace>
     <AssemblyName>Epoint.Modules.AP</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -72,16 +76,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\0-EpointERP\DevExpress.XtraTreeList.v15.1.dll</HintPath>
     </Reference>
-    <Reference Include="Epoint.Lists">
-      <HintPath>..\..\..\Epoint\Epoint.Lists.dll</HintPath>
+    <Reference Include="Epoint.Lists, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\E-DMS40\Epoint.Lists.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Lists.DoiTuong, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\0-EpointERP\Epoint.Lists.DoiTuong.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Lists.DoiTuong.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Modules, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Epoint\Epoint.Modules.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Modules.AS, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

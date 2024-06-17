@@ -12,10 +12,14 @@
     <AssemblyName>Epoint.Modules.AR</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>epoint.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
@@ -75,7 +79,7 @@
     </Reference>
     <Reference Include="Epoint.Lists, Version=2.0.1.8, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\0-Accounting\Epoint.Lists.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Lists.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Lists.DoiTuong, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,7 +87,7 @@
     </Reference>
     <Reference Include="Epoint.Modules, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\0-Accounting\Epoint.Modules.dll</HintPath>
+      <HintPath>..\..\E-DMS40\Epoint.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Reports, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

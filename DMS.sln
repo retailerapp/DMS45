@@ -1,31 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.916
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.AP", "Epoint.Modules.AP\Epoint.Modules.AP.csproj", "{EF90494E-7D7C-49FA-A792-9E1836DE92F3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.AR", "Epoint.Modules.AR\Epoint.Modules.AR.csproj", "{138D5475-8275-4A13-8774-B77C683C5692}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.CA", "Epoint.Modules.CA\Epoint.Modules.CA.csproj", "{A0B1CBD2-E450-4A37-A349-CAAA19C176D0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.IN", "Epoint.Modules.IN\Epoint.Modules.IN.csproj", "{C1BC0455-E202-4CB0-A6FC-FFEECF08FBED}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules", "Epoint.Modules\Epoint.Modules.csproj", "{B973DBE5-40C3-4EC9-AD76-905E691154A1}"
 EndProject
@@ -43,20 +27,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Lists.Tuyen", "Epoint.Lists.Tuyen\Epoint.Lists.Tuyen.csproj", "{B43CFB04-53AF-4181-8B7D-C85327F8A5CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.POS", "Epoint.Modules.POS\Epoint.Modules.POS.csproj", "{12FCD7D5-5C68-45AF-879F-4B6147548464}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Lists.NghiepVu", "Epoint.Lists.NghiepVu\Epoint.Lists.NghiepVu.csproj", "{9A915472-5C92-41DE-8FB8-3FBD1672567B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Lists", "Epoint.Lists\Epoint.Lists.csproj", "{2224CC58-5200-4537-BBE3-B57044BCD8D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.GL", "Epoint.Modules.GL\Epoint.Modules.GL.csproj", "{0C1D0789-E140-444B-998E-CA243D6DC7A9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2224CC58-5200-4537-BBE3-B57044BCD8D5} = {2224CC58-5200-4537-BBE3-B57044BCD8D5}
-		{B973DBE5-40C3-4EC9-AD76-905E691154A1} = {B973DBE5-40C3-4EC9-AD76-905E691154A1}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

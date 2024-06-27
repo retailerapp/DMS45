@@ -492,11 +492,14 @@ namespace Epoint.Modules.AR
                         break;
                 }
             }
-            else if (e.KeyCode == Keys.F10)
+            if (e.Shift)
             {
-                frmAPILog log = new frmAPILog();
-                log.Load(strLog);
-            }
+                if (e.KeyCode == Keys.F6)
+                {
+                    frmAPILog log = new frmAPILog();
+                    log.Load(strLog);
+                }
+            } 
             base.OnKeyDown(e);
         }
         void dgvViewHD_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

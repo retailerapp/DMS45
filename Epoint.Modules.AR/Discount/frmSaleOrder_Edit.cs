@@ -139,6 +139,12 @@ namespace Epoint.Modules.AR
             if (enuNew_Edit == enuEdit.New || enuNew_Edit == enuEdit.Copy)
             {
                 this.strStt = Common.GetNewStt(strModule, true);
+                //New Stt
+                //Hashtable htPara = new Hashtable();
+                //htPara.Add("MODULE", this.strModule);
+                //htPara.Add("STTOUT", this.strStt);
+                //htPara.Add("MA_DVCS", Element.sysMa_DvCs);
+                //SQLExec.ExecuteReturnDt("Sp_GetNewSttIn", htPara, CommandType.StoredProcedure);
             }
             else
             {

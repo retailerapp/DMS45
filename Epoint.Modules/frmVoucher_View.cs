@@ -2569,7 +2569,10 @@ namespace Epoint.Modules
 
                     break;
 
-
+                case Keys.F12:
+                    frmChangeDvcs frmChangeDvcs = new frmChangeDvcs();
+                    frmChangeDvcs.Load(drCurrent["Stt"].ToString());
+                    break;
                 case Keys.F10:
                     switch (e.Modifiers)
                     {

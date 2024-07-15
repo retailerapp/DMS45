@@ -59,7 +59,7 @@
             this.pnlTTien.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.pnlTTien.Controls.Add(this.numTTien3);
             this.pnlTTien.Controls.Add(this.numTTien0);
-            this.pnlTTien.Location = new System.Drawing.Point(674, 483);
+            this.pnlTTien.Location = new System.Drawing.Point(957, 483);
             this.pnlTTien.Name = "pnlTTien";
             this.pnlTTien.Size = new System.Drawing.Size(102, 69);
             this.pnlTTien.TabIndex = 109;
@@ -116,7 +116,7 @@
             this.pnlTTien_Nt.Controls.Add(this.numTTien_Nt3);
             this.pnlTTien_Nt.Controls.Add(this.numTTien_Nt0);
             this.pnlTTien_Nt.Controls.Add(this.numTSo_Luong);
-            this.pnlTTien_Nt.Location = new System.Drawing.Point(475, 483);
+            this.pnlTTien_Nt.Location = new System.Drawing.Point(758, 483);
             this.pnlTTien_Nt.Name = "pnlTTien_Nt";
             this.pnlTTien_Nt.Size = new System.Drawing.Size(199, 69);
             this.pnlTTien_Nt.TabIndex = 108;
@@ -372,7 +372,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(228)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(781, 566);
+            this.ClientSize = new System.Drawing.Size(1064, 566);
             this.Controls.Add(this.btImport);
             this.Controls.Add(this.lbtStt);
             this.Controls.Add(this.btDiscoutDetail);

@@ -221,7 +221,7 @@ namespace Epoint.Modules.AR
 
 
                 SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
-                command.CommandText = "SP_OM_ImportOrderYenChau";
+                command.CommandText = "SP_OM_ImportOrderYenChau_V02";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
                 command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
@@ -229,7 +229,7 @@ namespace Epoint.Modules.AR
                 {
                     SqlDbType = SqlDbType.Structured,
                     ParameterName = "@Header",
-                    TypeName = "TVP_OM_DMSYENCHAU",
+                    TypeName = "TVP_OM_DMSYENCHAU_V02",
                     Value = dtEditCt,
                 };
                 command.Parameters.Add(parameter);
@@ -303,7 +303,7 @@ namespace Epoint.Modules.AR
                 DataTable dtExcel = new DataTable();
                 DataTable DtCheck = new DataTable();
 
-                dtOrderHeader = SQLExec.ExecuteReturnDt("DECLARE @T AS TVP_OM_DMSYENCHAU SELECT * FROM @T");
+                dtOrderHeader = SQLExec.ExecuteReturnDt("DECLARE @T AS TVP_OM_DMSYENCHAU_V02 SELECT * FROM @T");
                 string cColumnNameList = "";
                 //foreach (DataColumn clName in dtImport.Columns)
                 //{
@@ -317,15 +317,16 @@ namespace Epoint.Modules.AR
 
 
                 SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
-                command.CommandText = "OM_ValidateDataDMSOrderYenChau";
-                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "OM_ValidateDataDMSOrderYenChau_V02";
+                command.CommandType = CommandType.StoredProcedure;  
+                command.Parameters.AddWithValue("@IsImport", false);
                 command.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
                 command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
                 SqlParameter pHeader = new SqlParameter
                 {
                     SqlDbType = SqlDbType.Structured,
                     ParameterName = "@Header",
-                    TypeName = "TVP_OM_DMSYENCHAU",
+                    TypeName = "TVP_OM_DMSYENCHAU_V02",
                     Value = dtOrderHeader,
                 };
                 command.Parameters.Add(pHeader);
@@ -355,7 +356,7 @@ namespace Epoint.Modules.AR
                 }
                 /////////// View detail
                 SqlCommand command1 = SQLExec.GetNewSQLConnection().CreateCommand();
-                command1.CommandText = "OM_GetDataDMSOrderDetailYenChau";
+                command1.CommandText = "OM_GetDataDMSOrderDetailYenChau_V02";
                 command1.CommandType = CommandType.StoredProcedure;
                 command1.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
                 command1.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
@@ -363,7 +364,7 @@ namespace Epoint.Modules.AR
                 {
                     SqlDbType = SqlDbType.Structured,
                     ParameterName = "@Header",
-                    TypeName = "TVP_OM_DMSYENCHAU",
+                    TypeName = "TVP_OM_DMSYENCHAU_V02",
                     Value = dtOrderHeader,
                 };
                 command1.Parameters.Add(pHeader1);             

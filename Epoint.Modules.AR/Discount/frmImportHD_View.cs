@@ -221,7 +221,7 @@ namespace Epoint.Modules.AR
 
 
                 SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
-                command.CommandText = "SP_OM_ImportOrderYenChau_V02";
+                command.CommandText = "OM_ImportOrderYenChau_V02";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@UserID", Element.sysUser_Id);
                 command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);

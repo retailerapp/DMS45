@@ -235,9 +235,18 @@ namespace Epoint.Modules.AR
                         drDoituongNew["Dia_Chi"] = header.DiaChiKhachHang;
                         drDoituongNew["So_Phone"] = header.DienThoaiKhachHang;
                         drDoituongNew["Ma_CbNv_BH"] = header.NhanVienBanHang;
+                        if (dtDoiTuongCheck.Columns.Contains("TuyenBanHang"))
+                        {
+
+                            drDoituongNew["TuyenBanHang"] = header.TuyenBanHang;
+                            object objTuyen = SQLExec.ExecuteReturnValue("SELECT Ma_Tuyen FROM LITUYEN WHERE Ten_Tuyen = N'" + header.TuyenBanHang.Trim() + "'");
+                            drDoituongNew["Ma_Tuyen"] = objTuyen != null ? objTuyen.ToString() : header.TuyenBanHang;
+
+                        }
                         dtDoiTuongCheck.Rows.Add(drDoituongNew);
                         dtDoiTuongCheck.AcceptChanges();
                         drNew["Ten_Dt"] = header.TenKhachHang;
+
 
                     }
                     else
@@ -618,6 +627,7 @@ namespace Epoint.Modules.AR
         public string DiaChiKhachHang { get; set; }
         public string DienThoaiKhachHang { get; set; }
         public string LoaiKhachHang { get; set; }
+        public string TuyenBanHang { get; set; }
 
         // Nhan vien ban hang
         public string NhanVienBanHang { get; set; }

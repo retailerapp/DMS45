@@ -3898,15 +3898,21 @@ namespace Epoint.Modules.AR
                 {
 
                     //if (drKho.Table.Columns.Contains("Tk_Gv") && drKho["Tk_Gv"].ToString() != string.Empty)
-                    if ((string)drDmCt["Nh_Ct"] == "1")
+                    if ((string)drDmCt["Nh_Ct"] == "1")//HD In
                     {
                         drCurrent["Tk_Co"] = drKho.Table.Columns.Contains("Tk_Gv") && drKho["Tk_Gv"].ToString() != string.Empty ? drKho["Tk_Gv"].ToString() : drCurrent["Tk_Co"];
                         drCurrent["Tk_No"] = drKho.Table.Columns.Contains("Tk_Kho") && drKho["Tk_Kho"].ToString() != string.Empty ? drKho["Tk_Kho"].ToString() : drCurrent["Tk_No"];
+
+                        drCurrent["Tk_Co2"] = drKho.Table.Columns.Contains("Tk_No") && drKho["Tk_No"].ToString() != string.Empty ? drKho["Tk_No"].ToString() : drCurrent["Tk_Co2"];
+                        drCurrent["Tk_No2"] = drKho.Table.Columns.Contains("Tk_Dthu") && drKho["Tk_Dthu"].ToString() != string.Empty ? drKho["Tk_Dthu"].ToString() : drCurrent["Tk_No2"];
                     }
-                    else
+                    else // HD Out
                     {
                         drCurrent["Tk_Co"] = drKho.Table.Columns.Contains("Tk_Kho") && drKho["Tk_Kho"].ToString() != string.Empty ? drKho["Tk_Kho"].ToString() : drCurrent["Tk_Co"];
                         drCurrent["Tk_No"] = drKho.Table.Columns.Contains("Tk_Gv") && drKho["Tk_Gv"].ToString() != string.Empty ? drKho["Tk_Gv"].ToString() : drCurrent["Tk_No"];
+
+                        drCurrent["Tk_Co2"] = drKho.Table.Columns.Contains("Tk_Dthu") && drKho["Tk_Dthu"].ToString() != string.Empty ? drKho["Tk_Dthu"].ToString() : drCurrent["Tk_Co2"];
+                        drCurrent["Tk_No2"] = drKho.Table.Columns.Contains("Tk_No") && drKho["Tk_No"].ToString() != string.Empty ? drKho["Tk_No"].ToString() : drCurrent["Tk_No2"];
                     }
                 }
             }
@@ -3951,15 +3957,32 @@ namespace Epoint.Modules.AR
                 //    {
                 //        drCurrent["Tk_No"] = drLookup["Tk_Gv"].ToString();
                 //    }
-                if ((string)drDmCt["Nh_Ct"] == "1")
+                //if ((string)drDmCt["Nh_Ct"] == "1")
+                //{
+                //    drCurrent["Tk_Co"] = drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty ? drLookup["Tk_Gv"].ToString() : drCurrent["Tk_Co"];
+                //    drCurrent["Tk_No"] = drLookup.Table.Columns.Contains("Tk_Kho") && drLookup["Tk_Kho"].ToString() != string.Empty ? drLookup["Tk_Kho"].ToString() : drCurrent["Tk_No"];
+                //}
+                //else
+                //{
+                //    drCurrent["Tk_Co"] = drLookup.Table.Columns.Contains("Tk_Kho") && drLookup["Tk_Kho"].ToString() != string.Empty ? drLookup["Tk_Kho"].ToString() : drCurrent["Tk_Co"];
+                //    drCurrent["Tk_No"] = drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty ? drLookup["Tk_Gv"].ToString() : drCurrent["Tk_No"];
+                //}
+
+                if ((string)drDmCt["Nh_Ct"] == "1")//HD In
                 {
                     drCurrent["Tk_Co"] = drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty ? drLookup["Tk_Gv"].ToString() : drCurrent["Tk_Co"];
                     drCurrent["Tk_No"] = drLookup.Table.Columns.Contains("Tk_Kho") && drLookup["Tk_Kho"].ToString() != string.Empty ? drLookup["Tk_Kho"].ToString() : drCurrent["Tk_No"];
+
+                    drCurrent["Tk_Co2"] = drLookup.Table.Columns.Contains("Tk_No") && drLookup["Tk_No"].ToString() != string.Empty ? drLookup["Tk_No"].ToString() : drCurrent["Tk_Co2"];
+                    drCurrent["Tk_No2"] = drLookup.Table.Columns.Contains("Tk_Dthu") && drLookup["Tk_Dthu"].ToString() != string.Empty ? drLookup["Tk_Dthu"].ToString() : drCurrent["Tk_No2"];
                 }
-                else
+                else // HD Out
                 {
                     drCurrent["Tk_Co"] = drLookup.Table.Columns.Contains("Tk_Kho") && drLookup["Tk_Kho"].ToString() != string.Empty ? drLookup["Tk_Kho"].ToString() : drCurrent["Tk_Co"];
                     drCurrent["Tk_No"] = drLookup.Table.Columns.Contains("Tk_Gv") && drLookup["Tk_Gv"].ToString() != string.Empty ? drLookup["Tk_Gv"].ToString() : drCurrent["Tk_No"];
+
+                    drCurrent["Tk_Co2"] = drLookup.Table.Columns.Contains("Tk_Dthu") && drLookup["Tk_Dthu"].ToString() != string.Empty ? drLookup["Tk_Dthu"].ToString() : drCurrent["Tk_Co2"];
+                    drCurrent["Tk_No2"] = drLookup.Table.Columns.Contains("Tk_No") && drLookup["Tk_No"].ToString() != string.Empty ? drLookup["Tk_No"].ToString() : drCurrent["Tk_No2"];
                 }
             }
             return true;

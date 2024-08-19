@@ -3135,21 +3135,17 @@ namespace Epoint.Modules.AR
                 {
                     if (drCurrent["Ma_Vt"].ToString() != "" && drCurrent["Ma_Kho"].ToString() != "" && Convert.ToDouble(drCurrent["So_Luong"]) != 0)
                     {
-                        Hashtable htPara = new Hashtable();
-                        htPara.Add("NGAY_CT", dteNgay_Ct.Text);
-                        htPara.Add("MA_KHO", drCurrent["Ma_Kho"]);
-                        htPara.Add("MA_VT", drCurrent["Ma_Vt"]);
-                        htPara.Add("STT", drCurrent["Stt"]);
-                        htPara.Add("MA_DVCS", Element.sysMa_DvCs);
 
-                        double dbTien_TT = Convert.ToDouble(SQLExec.ExecuteReturnValue("SELECT dbo.fn_GetTien_TT(@Ngay_Ct, @Ma_Kho, @Ma_Vt, @Stt, @Ma_DvCs)", htPara, CommandType.Text));
-                        double dbSL_TT = Convert.ToDouble(SQLExec.ExecuteReturnValue("SELECT dbo.fn_GetSL_TT(@Ngay_Ct, @Ma_Kho, @Ma_Vt, @Stt, @Ma_DvCs)", htPara, CommandType.Text));
-                        double dbGia_TT = dbSL_TT != 0 ? Math.Round(dbTien_TT / dbSL_TT, 4) : 0;
+                        double dbGia_TT = 0;
+                        string StrDescr = Voucher.GetGiaVonBQTT(drCurrent, ref dbGia_TT);
 
                         if (txtMa_Tte.Text == "VND")
-                            drCurrent["Gia_Nt9"] = dbGia_TT;
+                        {
+                            drCurrent["Gia"] = dbGia_TT;
+                            drCurrent["Tien"] = Convert.ToDouble(drCurrent["So_Luong"]) * dbGia_TT;
+                        }
                         else
-                            drCurrent["Gia_Nt9"] = Math.Round(dbGia_TT / numTy_Gia.Value, 4);
+                            drCurrent["Gia_Nt"] = Math.Round(dbGia_TT / numTy_Gia.Value, 4);
                     }
 
                 }
@@ -3164,7 +3160,7 @@ namespace Epoint.Modules.AR
                         //drCurrent["Auto_Cost"] = 0;
                     }
 
-                }
+                } 
 
             }
 

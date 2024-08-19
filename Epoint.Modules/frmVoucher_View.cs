@@ -2569,10 +2569,18 @@ namespace Epoint.Modules
 
                     break;
 
-                case Keys.F12:
-                    frmChangeDvcs frmChangeDvcs = new frmChangeDvcs();
-                    frmChangeDvcs.Load(drCurrent["Stt"].ToString());
-                    break;
+                /*case Keys.F11:
+                    switch (e.Modifiers)
+                    {
+                        case Keys.Control:
+                            {
+                                frmChangeDvcs frmChangeDvcs = new frmChangeDvcs();
+                                frmChangeDvcs.Load(drCurrent["Stt"].ToString());
+                                break;
+                            }                           
+
+                    }
+                    break;*/
                 case Keys.F10:
                     switch (e.Modifiers)
                     {
@@ -2597,7 +2605,8 @@ namespace Epoint.Modules
                             return;
 
                         case Keys.Control:
-                            //this.Export_Excel();
+                            frmChangeDvcs frmChangeDvcs = new frmChangeDvcs();
+                            frmChangeDvcs.Load(drCurrent["Stt"].ToString());
                             break;
                     }
                     break;

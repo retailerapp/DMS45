@@ -101,7 +101,7 @@ namespace Epoint.Modules.CA
             this.Ma_Tte_Valid();
             this.BindingLanguage();
             this.LoadDicName();
-
+            this.ucNotice.Text = (string)drEditPh["Create_Log"];
             if (!isAccept)
                 this.ShowDialog();
             else

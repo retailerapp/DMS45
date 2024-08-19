@@ -87,7 +87,7 @@
     </Reference>
     <Reference Include="Epoint.Modules, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\E-DMS40\Epoint.Modules.dll</HintPath>
+      <HintPath>..\..\E-DMS40_Migration\Epoint.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Epoint.Reports, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -109,6 +109,7 @@ namespace Epoint.Modules.IN
             this.BindingLanguage();
             this.LoadDicName();
 
+            this.ucNotice.Text = (string)drEditPh["Create_Log"];
             //Neu la Phieu nhap kho 
             if (strMa_Ct == "PN" || strMa_Ct == "TP")
             {                

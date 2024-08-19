@@ -2647,6 +2647,29 @@ namespace Epoint.Modules
             catch
             { return string.Empty; }
         }
+        public static string GetGiaVonBQTT(DataRow drEditCt, ref double dbGiaLast)
+        {
+            try
+            {
+                Hashtable ht = new Hashtable();
+                ht["MA_VT"] = drEditCt["Ma_Vt"];
+                ht["MA_DT"] = drEditCt["MA_DT"];
+                ht["NGAY_CT"] = drEditCt["Ngay_Ct"];
+                ht["DVT"] = drEditCt["Dvt"];
+                ht["STT"] = drEditCt["Stt"];
+                ht["MA_DVCS"] = drEditCt["Ma_DvCs"];
+
+
+                DataTable dt = SQLExec.ExecuteReturnDt("Sp_GetGiaBQTT", ht, CommandType.StoredProcedure);
+                DataRow dr = dt.Rows[0];
+
+                dbGiaLast = Convert.ToDouble(dr["Gia_BQTT"]);
+
+                return "-- Giá bình quân thời điểm :" + dbGiaLast.ToString();
+            }
+            catch
+            { return string.Empty; }
+        }
         public static string GetDuCuoi(DataRow drEditCt, string strTk)
         {
             Hashtable ht = new Hashtable();

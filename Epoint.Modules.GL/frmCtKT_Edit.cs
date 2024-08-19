@@ -98,8 +98,8 @@ namespace Epoint.Modules.GL
 			this.Ma_Tte_Valid();
 			this.BindingLanguage();
 			this.LoadDicName();
-
-			if (!isAccept)
+            this.ucNotice.Text = (string)drEditPh["Create_Log"];
+            if (!isAccept)
 				this.ShowDialog();
 			else
 				this.ActiveControl = txtMa_Ct;

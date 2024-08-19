@@ -153,6 +153,7 @@ namespace Epoint.Modules.AP
             this.BindingLanguage();
             this.LoadDicName();
 
+            this.ucNotice.Text = (string)drEditPh["Create_Log"];
             if (!isAccept)
                 this.ShowDialog();
             else

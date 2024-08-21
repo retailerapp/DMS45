@@ -15,6 +15,7 @@ using Epoint.Systems.Elements;
 using System.Data.OleDb;
 using System.Reflection;
 using System.Collections;
+using System.Globalization;
 
 namespace Epoint.Modules.AR
 {
@@ -123,6 +124,7 @@ namespace Epoint.Modules.AR
                 drCurrent = dtGiaBan.NewRow();
 
             frmGiaBan_Edit frmEdit = new frmGiaBan_Edit();
+            frmEdit.Object_ID = this.Object_ID;
             frmEdit.Load(enuNew_Edit, drCurrent);
 
             //Accept

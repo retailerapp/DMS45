@@ -20,6 +20,7 @@ namespace Epoint.Modules.AR
     public partial class frmGiaBan_Edit : Epoint.Systems.Customizes.frmEdit
     {
         public bool bNh_Dt = false;
+       
         public frmGiaBan_Edit()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace Epoint.Modules.AR
             this.enuNew_Edit = enuNew_Edit;
             this.drEdit = drEdit;
             this.Tag = (char)enuNew_Edit + "," + this.Tag;
-
+            //this.Object_ID = "ARGIABAN";
             Common.ScaterMemvar(this, ref drEdit);
 
             BindingLanguage();
@@ -273,6 +274,26 @@ namespace Epoint.Modules.AR
         {
             this.isAccept = false;
             this.Close();
+        }
+
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);        
+
+            if (this.enuNew_Edit == enuEdit.Edit)
+            {
+                
+                if (!Element.sysIs_Admin)
+                {                  
+
+                    if (!Common.CheckPermission(this.Object_ID, enuPermission_Type.Allow_Edit))
+                    {
+                        this.btgAccept.btAccept.Enabled = false;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

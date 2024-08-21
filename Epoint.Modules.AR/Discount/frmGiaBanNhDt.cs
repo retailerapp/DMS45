@@ -99,6 +99,7 @@ namespace Epoint.Modules.AR
 
             frmGiaBan_Edit frmEdit = new frmGiaBan_Edit();
             frmEdit.bNh_Dt = true;
+            frmEdit.Object_ID = this.Object_ID;
             frmEdit.Load(enuNew_Edit, drCurrent);
 
             //Accept

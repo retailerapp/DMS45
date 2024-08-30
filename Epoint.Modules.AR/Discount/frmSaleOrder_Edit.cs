@@ -134,7 +134,7 @@ namespace Epoint.Modules.AR
             this.Object_ID = strMa_Ct;
             this.strMa_Kho_Default = DataTool.SQLGetNameByCode("SYSMEMBER", "Member_ID", "Ma_Kho_Ban", Element.sysUser_Id);
             this.strTk_No2 = Parameters.GetParaValue("DMS_TK_CO2_INT") == null ? string.Empty : (string)Parameters.GetParaValue("DMS_TK_CO2_INT");
-
+            this.BindingCombobox();
 
             if (enuNew_Edit == enuEdit.New || enuNew_Edit == enuEdit.Copy)
             {
@@ -181,6 +181,7 @@ namespace Epoint.Modules.AR
             {
                 this.lblNgay_Crtd.Text = "Ngày Tạo:" + DateTime.Now.ToLongDateString();
                 this.BindingTaxDefault(strMa_Thue_Default);
+                cbxLoai_Tra_Hang.SelectedIndex = 0;
             }
             else
             {
@@ -455,6 +456,8 @@ namespace Epoint.Modules.AR
             {
                 lblCt_Di_Kem.Visible = false;
                 txtCt_Di_Kem.Visible = false;
+
+                cbxLoai_Tra_Hang.Visible = false;
             }
 
             //BindingTTien            
@@ -2058,7 +2061,17 @@ namespace Epoint.Modules.AR
             string currentDir = Environment.CurrentDirectory;
             System.Diagnostics.Process.Start(currentDir + @"\Help\" + drDmCt["Help_File"]);
         }
+        private void BindingCombobox()
+        {
+       
 
+            string strSQL = @" sp_OM_GetCombovalue @Key = 'RETURNTYPE'";
+            cbxLoai_Tra_Hang.DataSource = SQLExec.ExecuteReturnDt(strSQL, CommandType.Text);
+            cbxLoai_Tra_Hang.ValueMember = "ID";
+            cbxLoai_Tra_Hang.DisplayMember = "Value";   
+            
+           
+        }
         void txtMa_Ct_Enter(object sender, EventArgs e)
         {
             string strCreate_Log = Common.Show_Log((string)drEditPh["Create_Log"]);

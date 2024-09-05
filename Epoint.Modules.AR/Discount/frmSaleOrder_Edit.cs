@@ -621,7 +621,12 @@ namespace Epoint.Modules.AR
                 return false;
             }
 
-
+            if ((string)drDmCt["Nh_Ct"] == "1" &&  this.cbxLoai_Tra_Hang.SelectedValue.ToString() == string.Empty)
+            {
+                EpointMessage.MsgOk("Chọn lý do trả hàng !");
+                cbxLoai_Tra_Hang.Focus();
+                return false;
+            }
             if (drDmCt["Nh_Ct"].ToString() == "1" && txtMa_CbNV_GH.Text == string.Empty) // Kiểm tra mã NVGH của đơn trả hàng
             {
                 EpointMessage.MsgOk("Mã nhân viên giao hàng không được rỗng ");
@@ -2063,14 +2068,14 @@ namespace Epoint.Modules.AR
         }
         private void BindingCombobox()
         {
-       
+
 
             string strSQL = @" sp_OM_GetCombovalue @Key = 'RETURNTYPE'";
             cbxLoai_Tra_Hang.DataSource = SQLExec.ExecuteReturnDt(strSQL, CommandType.Text);
             cbxLoai_Tra_Hang.ValueMember = "ID";
-            cbxLoai_Tra_Hang.DisplayMember = "Value";   
-            
-           
+            cbxLoai_Tra_Hang.DisplayMember = "Value";
+
+
         }
         void txtMa_Ct_Enter(object sender, EventArgs e)
         {
@@ -3173,7 +3178,7 @@ namespace Epoint.Modules.AR
                         //drCurrent["Auto_Cost"] = 0;
                     }
 
-                } 
+                }
 
             }
 

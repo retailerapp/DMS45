@@ -53,15 +53,15 @@
             this.ListOrder.TabStop = false;
             this.ListOrder.Text = "Lọc";
             // 
-            // frmCheckStock_View
+            // frmCheckCustCredit_View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 722);
             this.Controls.Add(this.ListOrder);
             this.Controls.Add(this.btgAccept);
-            this.Name = "frmCheckStock_View";
-            this.Text = "Chi tiết khuyến mãi";
+            this.Name = "frmCheckCustCredit_View";
+            this.Text = "Chi tiết hạn mức công nợ";
             this.ResumeLayout(false);
 
 		}

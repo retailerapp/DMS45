@@ -108,24 +108,24 @@ namespace Epoint.Lists
             // 
             // btgAccept
             // 
-            this.btgAccept.Location = new System.Drawing.Point(452, 718);
+            this.btgAccept.Location = new System.Drawing.Point(452, 708);
             this.btgAccept.Size = new System.Drawing.Size(181, 29);
             this.btgAccept.TabIndex = 1;
             // 
             // tabEdit
             // 
-            this.tabEdit.Size = new System.Drawing.Size(625, 710);
+            this.tabEdit.Size = new System.Drawing.Size(625, 700);
             this.tabEdit.TabIndex = 0;
             // 
             // Page1
             // 
             this.Page1.Controls.Add(this.grTitle1);
             this.Page1.Controls.Add(this.grTitle2);
-            this.Page1.Size = new System.Drawing.Size(617, 684);
+            this.Page1.Size = new System.Drawing.Size(617, 674);
             // 
             // Page2
             // 
-            this.Page2.Size = new System.Drawing.Size(920, 684);
+            this.Page2.Size = new System.Drawing.Size(617, 684);
             // 
             // txtLoai_Dt
             // 
@@ -1301,7 +1301,7 @@ namespace Epoint.Lists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 759);
+            this.ClientSize = new System.Drawing.Size(649, 749);
             this.Name = "frmDoiTuong_Edit";
             this.Object_ID = "LIDOITUONG";
             this.Tag = "ESC";

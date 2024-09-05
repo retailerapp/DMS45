@@ -82,7 +82,7 @@ namespace Epoint.Modules.AR
             DataRow drDmCt = DataTool.SQLGetDataRowByID("SYSDMCT", "Ma_Ct", strMa_Ct);
             //string strTable_Ct = (string)drDmCt["Table_Ct"];
 
-            dtViewHD = GetDiscountDetail();
+            dtViewHD = CustomerCheckingCredit();
 
             bdsViewHD.DataSource = dtViewHD;
             dgvViewHD.DataSource = bdsViewHD;
@@ -95,7 +95,7 @@ namespace Epoint.Modules.AR
 
         }
 
-        private DataTable GetDiscountDetail()
+        private DataTable CustomerCheckingCredit()
         {
             DataTable dtReturn = new DataTable();
 

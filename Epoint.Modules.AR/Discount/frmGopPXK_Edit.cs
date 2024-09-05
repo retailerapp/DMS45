@@ -715,6 +715,41 @@ namespace Epoint.Modules.AR
             }
 
         }
+
+        private DataTable CheckCustomerCreditDetail()
+        {
+            DataTable dtReturn = new DataTable();
+
+
+            SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
+            command.CommandText = "sp_PXKCheckingCustomerCredit";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Ma_PX", txtMa_Px.Text);
+            command.Parameters.AddWithValue("@Ngay_Ct", Library.StrToDate(dteNgay_Ct.Text));
+            command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+            command.Parameters.AddWithValue("@Is_NotAvail", true); 
+            command.Parameters.AddWithValue("@IsChecking", true);
+            SqlParameter parameter = new SqlParameter
+            {
+                SqlDbType = SqlDbType.Structured,
+                ParameterName = "@TVP_PXKDETAIL",
+                TypeName = "TVP_PXKDETAIL",
+                Value = this.dtImport,
+            };
+            command.Parameters.Add(parameter);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dtReturn);
+                return dtReturn;
+
+            }
+            catch (Exception exception)
+            {
+                return null;
+            }
+
+        }
         void GetInfoPXK()
         {
             if (this.strMa_Ct != "IN")

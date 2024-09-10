@@ -52,7 +52,7 @@ namespace Epoint.Modules.AR
 
             btAddHD.Click += new EventHandler(btAddHD_Click);
             btCheckStock.Click += new EventHandler(btCheckStock_Click);
-            btCheckCustomerCredit.Click += new EventHandler(btCheckStock_Click);
+            btCheckCustomerCredit.Click += new EventHandler(btCheckCustomerCredit_Click);
         }
 
 
@@ -300,7 +300,18 @@ namespace Epoint.Modules.AR
                     return false;
                 }
             }
-
+            string strCheckCustomerCredit = Parameters.GetParaValue("ARCUSTCREDIT") == null ? "N" : (string)Parameters.GetParaValue("ARCUSTCREDIT");
+            if (strCheckQtyOnhand == "Y" && txtMa_Ct.Text == "IN")
+            {
+                DataTable dtCheckingCredit = this.CheckCustomerCreditDetail();
+                if (dtCheckingCredit != null && dtCheckingCredit.Select("IsCheck = 1").Length > 0)
+                {
+                    EpointMessage.MsgOk("Tồn tại khách hàng quá hạn mức công nợ! ");
+                    frmCheckCustCredit_View frm = new frmCheckCustCredit_View();
+                    frm.Load(dtCheckingCredit);
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -694,6 +705,72 @@ namespace Epoint.Modules.AR
             command.Parameters.AddWithValue("@Ngay_Ct", Library.StrToDate(dteNgay_Ct.Text));
             command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
             command.Parameters.AddWithValue("@Is_NotAvail", true);
+            SqlParameter parameter = new SqlParameter
+            {
+                SqlDbType = SqlDbType.Structured,
+                ParameterName = "@TVP_PXKDETAIL",
+                TypeName = "TVP_PXKDETAIL",
+                Value = this.dtImport,
+            };
+            command.Parameters.Add(parameter);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dtReturn);
+                return dtReturn;
+
+            }
+            catch (Exception exception)
+            {
+                return null;
+            }
+
+        }
+        private DataTable CustomerCheckingCredit()
+        {
+            DataTable dtReturn = new DataTable();
+
+           
+            SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
+            command.CommandText = "sp_PXKCheckingCustomerCredit";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Ma_PX", this.txtMa_Px.Text);
+            command.Parameters.AddWithValue("@Ngay_Ct", Library.StrToDate(dteNgay_Ct.Text));
+            command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+            SqlParameter parameter = new SqlParameter
+            {
+                SqlDbType = SqlDbType.Structured,
+                ParameterName = "@TVP_PXKDETAIL",
+                TypeName = "TVP_PXKDETAIL",
+                Value = this.dtImport,
+            };
+            command.Parameters.Add(parameter);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dtReturn);
+                return dtReturn;
+
+            }
+            catch (Exception exception)
+            {
+                return dtReturn;
+            }
+
+        }
+        private DataTable CheckCustomerCreditDetail()
+        {
+            DataTable dtReturn = new DataTable();
+
+
+            SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
+            command.CommandText = "sp_PXKCheckingCustomerCredit";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Ma_PX", txtMa_Px.Text);
+            command.Parameters.AddWithValue("@Ngay_Ct", Library.StrToDate(dteNgay_Ct.Text));
+            command.Parameters.AddWithValue("@Ma_DvCs", Element.sysMa_DvCs);
+            command.Parameters.AddWithValue("@Is_NotAvail", true); 
+            command.Parameters.AddWithValue("@IsChecking", true);
             SqlParameter parameter = new SqlParameter
             {
                 SqlDbType = SqlDbType.Structured,

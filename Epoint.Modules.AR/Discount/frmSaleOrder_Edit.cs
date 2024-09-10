@@ -167,7 +167,7 @@ namespace Epoint.Modules.AR
 
             this.bDuyet = (bool)(drEditPh["Duyet"]);
             //Log.WriteToLog(" this.TinhSoCt1();", false, null);
-            this.TinhSoCt1();
+            //this.TinhSoCt1();
 
 
             if (enuNew_Edit == enuEdit.Edit)
@@ -406,7 +406,7 @@ namespace Epoint.Modules.AR
                     drEditPh["Ngay_Ct"] = drCurrent["Ngay_Ct"];
                     //drEditPh["Ngay_Ct"] = Library.DateToStr(DateTime.Now);
 
-                    TinhSoCt1();
+                    //TinhSoCt1();
                 }
 
                 if (drEditPh.Table.Columns.Contains("Duyet"))
@@ -719,7 +719,7 @@ namespace Epoint.Modules.AR
 
             }
 
-            CheckSo_Ct1();
+            //CheckSo_Ct1();
             Common.GatherMemvar(this, ref this.drEditPh);
 
             //this.drEditPh["Ngay_Ct"] = dteNgay_Ct_1.Value;
@@ -733,7 +733,7 @@ namespace Epoint.Modules.AR
             {
                 drEditPh["Create_Log"] = Common.GetCurrent_Log();
                 drEditPh["LastModify_Log"] = string.Empty;
-                this.TinhSoCt1();
+                this.TinhSoCtDms();
             }
             else
             {
@@ -973,7 +973,36 @@ namespace Epoint.Modules.AR
                 }
             }
         }
-        private void TinhSoCt1()
+        private void f()
+        {
+            if (this.enuNew_Edit != enuEdit.New)
+                return;
+
+            if (bIs_So_Ct_Ctd)
+                return;
+
+            string Ma_Ct = txtMa_Ct.Text;
+            DateTime Ngay_Ct = Library.StrToDate(dteNgay_Ct.Text);
+            string strSo_Ct_New = string.Empty;
+
+
+            Hashtable htParameter = new Hashtable();
+            htParameter.Add("MA_DVCS", Element.sysMa_DvCs);
+            htParameter.Add("MA_CT", this.drEditPh["Ma_Ct"]);
+            htParameter.Add("NGAY_CT", Library.DateToStr((DateTime)this.drEditPh["Ngay_Ct"]));         
+            strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_New", htParameter, CommandType.StoredProcedure).ToString();
+
+            txtSo_Ct.Text = strSo_Ct_New;
+            this.drEditPh["So_Ct"] = strSo_Ct_New;
+            this.drEditPh.AcceptChanges();
+            this.strSo_Ct = strSo_Ct_New;
+            Common.CopyDataRow(drEditPh, dtEditCt.Rows[0], "So_Ct");
+
+            if (Parameters.GetParaValue("SO_CT_DMS") == null || Parameters.GetParaValue("SO_CT_DMS").ToString() == "C")
+                bIs_So_Ct_Ctd = true;
+
+        }
+        private void TinhSoCtDms()
         {
             if (this.enuNew_Edit != enuEdit.New)
                 return;
@@ -990,8 +1019,9 @@ namespace Epoint.Modules.AR
             htParameter.Add("MA_DVCS", Element.sysMa_DvCs);
             htParameter.Add("MA_CT", this.drEditPh["Ma_Ct"]);
             htParameter.Add("NGAY_CT", Library.DateToStr((DateTime)this.drEditPh["Ngay_Ct"]));
-
-            strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_New", htParameter, CommandType.StoredProcedure).ToString();
+            htParameter.Add("MA_DT", this.txtMa_Dt.Text);
+            htParameter.Add("LOAI_TRA_HANG", this.cbxLoai_Tra_Hang.Text);
+            strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_Dms", htParameter, CommandType.StoredProcedure).ToString();
 
             txtSo_Ct.Text = strSo_Ct_New;
             this.drEditPh["So_Ct"] = strSo_Ct_New;
@@ -1555,7 +1585,7 @@ namespace Epoint.Modules.AR
             {
                 //if (!Common.MsgYes_No("Chứng từ số: " + txtSo_Ct.Text + " Ngày: " + dteNgay_Ct.Text + " đã tồn tại.\n Bạn có muốn tiếp tục không ?"))
                 //    e.Cancel = true;
-                TinhSoCt1();
+                //TinhSoCt1();
             }
         }
         private bool CheckSo_Ct0()
@@ -2111,7 +2141,7 @@ namespace Epoint.Modules.AR
             //Tính lại Số chứng từ trong truờng hợp chọn lại Ma_Ct khác
             if (this.enuNew_Edit != enuEdit.Edit && txtMa_Ct.bTextChange)
             {
-                this.TinhSoCt1();
+                //this.TinhSoCt1();
             }
         }
         void txtMa_Ct_TextChanged(object sender, EventArgs e)
@@ -2246,7 +2276,7 @@ namespace Epoint.Modules.AR
             Common.GatherMemvar(this, ref drEditPh);
 
 
-            TinhSoCt1();
+            //TinhSoCt1();
             //Cap nhat Ngay hoa don            
             //dteNgay_Ct0.Text = dteNgay_Ct.Text;
         }

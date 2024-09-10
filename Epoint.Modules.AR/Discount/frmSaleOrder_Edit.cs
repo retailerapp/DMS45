@@ -980,10 +980,10 @@ namespace Epoint.Modules.AR
 
             Hashtable htParameter = new Hashtable();
             htParameter.Add("MA_DVCS", Element.sysMa_DvCs);
-            htParameter.Add("MA_CT", this.drEditPh["Ma_Ct"]);
+            htParameter.Add("MA_CT", this.drEditPh["Ma_Ct"]);          
             htParameter.Add("NGAY_CT", Library.DateToStr((DateTime)this.drEditPh["Ngay_Ct"]));
 
-            strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_New", htParameter, CommandType.StoredProcedure).ToString();
+            strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_Dms", htParameter, CommandType.StoredProcedure).ToString();
 
             txtSo_Ct.Text = strSo_Ct_New;
             this.drEditPh["So_Ct"] = strSo_Ct_New;

@@ -35,7 +35,7 @@
             // btgAccept
             // 
             this.btgAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btgAccept.Location = new System.Drawing.Point(684, 685);
+            this.btgAccept.Location = new System.Drawing.Point(984, 685);
             this.btgAccept.Name = "btgAccept";
             this.btgAccept.Size = new System.Drawing.Size(181, 29);
             this.btgAccept.TabIndex = 3;
@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ListOrder.Location = new System.Drawing.Point(0, 6);
             this.ListOrder.Name = "ListOrder";
-            this.ListOrder.Size = new System.Drawing.Size(882, 673);
+            this.ListOrder.Size = new System.Drawing.Size(1182, 673);
             this.ListOrder.TabIndex = 89;
             this.ListOrder.TabStop = false;
             this.ListOrder.Text = "Lọc";
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 722);
+            this.ClientSize = new System.Drawing.Size(1182, 722);
             this.Controls.Add(this.ListOrder);
             this.Controls.Add(this.btgAccept);
             this.Name = "frmCheckCustCredit_View";

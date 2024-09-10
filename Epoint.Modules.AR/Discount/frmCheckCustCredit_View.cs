@@ -46,7 +46,21 @@ namespace Epoint.Modules.AR
 
         }
 
+        public void Load(DataTable dtListInvoice)
+        {
+          
+            Build();
+            bdsViewHD.DataSource = dtListInvoice;
+            dgvViewHD.DataSource = bdsViewHD;
 
+            bdsViewHD.Position = 0;
+            //Uy quyen cho lop co so tim kiem           
+            bdsSearch = bdsViewHD;
+
+            BindingLanguage();
+
+            ShowDialog();
+        }
 
         public void Load(DataTable dtListInvoice, DateTime Ngay_Ct, string strMa_Px)
         {
@@ -109,7 +123,7 @@ namespace Epoint.Modules.AR
             }
 
             SqlCommand command = SQLExec.GetNewSQLConnection().CreateCommand();
-            command.CommandText = "sp_GetPXKCustomerCredit";
+            command.CommandText = "sp_PXKCheckingCustomerCredit";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@Ma_PX", this.strMa_Px);
             command.Parameters.AddWithValue("@Ngay_Ct", this.Ngay_Ct);

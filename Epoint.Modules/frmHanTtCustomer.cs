@@ -162,6 +162,7 @@ namespace Epoint.Modules
             htSQLPara.Add("MA_CBNV_BH", txtMa_CbNV_BH.Text);
             htSQLPara.Add("MA_CBNV_GH", txtMa_CbNV_GH.Text);
             htSQLPara.Add("STT_PT", "");
+            htSQLPara.Add("USERID", Element.sysUser_Id);
             htSQLPara.Add("MA_DVCS", Element.sysMa_DvCs);
             this.dtCtHanTt = SQLExec.ExecuteReturnDt("[sp_AR_GetHanTt]", htSQLPara, CommandType.StoredProcedure);
             if (!this.dtCtHanTt.Columns.Contains("Modify"))

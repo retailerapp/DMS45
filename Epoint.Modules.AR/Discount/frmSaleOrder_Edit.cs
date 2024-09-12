@@ -973,7 +973,7 @@ namespace Epoint.Modules.AR
                 }
             }
         }
-        private void f()
+        private void TinhSoCt1()
         {
             if (this.enuNew_Edit != enuEdit.New)
                 return;

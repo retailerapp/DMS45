@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.GL", "Epoint
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Lists.Kho", "Epoint.Lists.Kho\Epoint.Lists.Kho.csproj", "{D7EBAAC7-E208-4F34-8C0D-2EF80E6980B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epoint.Modules.HRM", "Epoint.Modules.HRM\Epoint.Modules.HRM.csproj", "{AD5177D8-D989-4BE1-A3F7-D3834F610E89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +104,10 @@ Global
 		{D7EBAAC7-E208-4F34-8C0D-2EF80E6980B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7EBAAC7-E208-4F34-8C0D-2EF80E6980B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7EBAAC7-E208-4F34-8C0D-2EF80E6980B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5177D8-D989-4BE1-A3F7-D3834F610E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5177D8-D989-4BE1-A3F7-D3834F610E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5177D8-D989-4BE1-A3F7-D3834F610E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5177D8-D989-4BE1-A3F7-D3834F610E89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

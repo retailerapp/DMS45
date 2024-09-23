@@ -156,7 +156,7 @@ namespace Epoint.Modules
             htSQLPara.Add("NGAY_CT2", Library.StrToDate(dteNgay_Ct2.Text));
             htSQLPara.Add("MA_TUYEN", txtMa_Tuyen.Text);
             htSQLPara.Add("MA_PX", txtMa_Px.Text);
-            htSQLPara.Add("TK", "1311");
+            htSQLPara.Add("TK", txtTk.Text);
             htSQLPara.Add("MA_DT", txtMa_Dt.Text);
             htSQLPara.Add("MA_NH_DT", txtMa_Nh_Dt.Text);
             htSQLPara.Add("MA_CBNV_BH", txtMa_CbNV_BH.Text);

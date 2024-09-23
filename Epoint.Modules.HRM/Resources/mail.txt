@@ -1,0 +1,286 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=File-List href="index_files/filelist.xml">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+b\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Blank</title>
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Times New Roman";
+	panose-1:2 2 6 3 5 4 5 2 3 4;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-right:0pt;
+	text-indent:0pt;
+	margin-top:0pt;
+	margin-bottom:0pt;
+	text-align:left;
+	font-family:"Times New Roman";
+	font-size:10.0pt;
+	color:black;}
+ol
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:-2197in;}
+ul
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-left:-2197in;}
+@page
+	{size:8.0302in 11.0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="250887" fill="f" fillcolor="white [7]"
+  strokecolor="black [0]">
+  <v:fill color="white [7]" color2="white [7]" on="f"/>
+  <v:stroke color="black [0]" color2="white [7]">
+   <o:left v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:top v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:right v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:bottom v:ext="view" color="black [0]" color2="white [7]"/>
+   <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+  </v:stroke>
+  <v:shadow color="#ccc [4]"/>
+  <v:textbox inset="2.88pt,2.88pt,2.88pt,2.88pt"/>
+  <o:colormenu v:ext="edit" fillcolor="blue [1]" strokecolor="black [0]"
+   shadowcolor="#ccc [4]"/>
+ </o:shapedefaults><o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body link="#0066FF" vlink="#6633CC" style='margin:0'>
+
+<div style='position:absolute;width:7.-71in;height:4.1043in'>
+<!--[if gte vml 1]><![if mso | ie]><v:shapetype id="_x0000_t201" coordsize="21600,21600"
+ o:spt="201" path="m,l,21600r21600,l21600,xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path shadowok="f" o:extrusionok="f" strokeok="f" fillok="f" o:connecttype="rect"/>
+ <o:lock v:ext="edit" shapetype="t"/>
+</v:shapetype><v:shape id="_x0000_s1034" type="#_x0000_t201" style='position:absolute;
+ left:50.25pt;top:75.74pt;width:503.25pt;height:252.47pt;z-index:3;
+ mso-wrap-distance-left:2.88pt;mso-wrap-distance-top:2.88pt;
+ mso-wrap-distance-right:2.88pt;mso-wrap-distance-bottom:2.88pt' stroked="f"
+ strokecolor="black [0]" o:cliptowrap="t">
+ <v:stroke color2="white [7]">
+  <o:left v:ext="view" color="black [0]" color2="white [7]" weight="0"/>
+  <o:top v:ext="view" color="black [0]" color2="white [7]" weight="0"/>
+  <o:right v:ext="view" color="black [0]" color2="white [7]" weight="0"/>
+  <o:bottom v:ext="view" color="black [0]" color2="white [7]" weight="0"/>
+  <o:column v:ext="view" color="black [0]" color2="white [7]"/>
+ </v:stroke>
+ <v:shadow color="#ccc [4]"/>
+ <o:lock v:ext="edit" rotation="t"/>
+ <v:textbox inset="0,0,0,0">
+ </v:textbox>
+</v:shape><![endif]><![endif]-->
+
+<table v:shapes="_x0000_s1034" cellpadding=0 cellspacing=0 width=671
+ height=337 border=0 dir=ltr style='width:503.25pt;height:252.47pt;border-collapse:
+ collapse;position:absolute;top:75.74pt;left:50.25pt;z-index:3'>
+ <tr>
+  <td width=671 height=29 valign=Top colspan=3 bgcolor="#CCCCCC"
+  style='width:503.25pt;height:21.9457pt;padding-left:2.88pt;padding-right:
+  2.88pt;padding-top:2.88pt;padding-bottom:2.88pt;background:#CCCCCC'>
+  <p class=MsoNormal style='text-align:center;text-align:center'><span
+  lang=en-US style='font-size:14.0pt;color:blue;font-weight:bold;language:en-US'>B&#7842;NG L&#431;&#416;NG THÁNG  4 /2013</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=671 height=26 valign=Top colspan=3 style='width:503.25pt;
+  height:19.6367pt;padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;
+  padding-bottom:2.88pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'>Mã Nhân viên : </span><span lang=en-US style='font-size:12.0pt;
+  language:en-US'>{0}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=671 height=27 valign=Top colspan=3 style='width:503.25pt;
+  height:19.6367pt;padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;
+  padding-bottom:2.88pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'>Tên nhân viên : </span><span lang=en-US style='font-size:
+  12.0pt;language:en-US'>{1}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=26 valign=Top style='width:174.0pt;height:19.8087pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'><span dir=ltr></span>1./ L&#432;&#417;ng c&#417; b&#7843;n</span></p>
+  </td>
+  <td width=223 height=26 valign=Top style='width:167.25pt;height:19.8087pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'><span dir=ltr></span>2./ Các kho&#7843;n ph&#7909; c&#7845;p</span></p>
+  </td>
+  <td width=216 height=26 valign=Top style='width:162.0pt;height:19.8087pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'><span dir=ltr></span>4./ Các kho&#7843;n gi&#7843;m tr&#7915;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=28 valign=Top style='width:174.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Ngày công :                   {2}</span></p>
+  </td>
+  <td width=223 height=28 valign=Top style='width:167.25pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Ph&#7909; c&#7845;p TN :    {8}</span></p>
+  </td>
+  <td width=216 height=28 valign=Top style='width:162.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Thu&#7871; TNCN:    {13}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=45 valign=Top style='width:174.0pt;height:33.8575pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Ngày công ngoài:         {3}</span></p>
+  </td>
+  <td width=223 height=45 valign=Top style='width:167.25pt;height:33.8575pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>PC &#259;n tr&#432;a :      {9}</span></p>
+  </td>
+  <td width=216 height=45 valign=Top style='width:162.0pt;height:33.8575pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>BHXH,BHYT,BHTN,KPCD:</span></p>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>                        {14}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=27 valign=Top style='width:174.0pt;height:20.0587pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Ngày công l&#7877;:                {4}</span></p>
+  </td>
+  <td width=223 height=27 valign=Top style='width:167.25pt;height:20.0587pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>PC X&#259;ng :         {10}</span></p>
+  </td>
+  <td width=216 height=27 valign=Top style='width:162.0pt;height:20.0587pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>L&#432;&#417;ng &#7913;ng :     {15}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=28 valign=Top style='width:174.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>L&#432;&#417;ng c&#417; b&#7843;n:               {5}</span></p>
+  </td>
+  <td width=223 height=28 valign=Top style='width:167.25pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>T&#7893;ng ph&#7909; c&#7845;p :{11}</span></p>
+  </td>
+  <td width=216 height=28 valign=Top style='width:162.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=28 valign=Top style='width:174.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>L&#432;&#417;ng ngoài gi&#7901;:         {6}</span></p>
+  </td>
+  <td width=223 height=28 valign=Top style='width:167.25pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>&nbsp;</span></p>
+  </td>
+  <td width=216 height=28 valign=Top style='width:162.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=28 valign=Top style='width:174.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>T&#7893;ng l&#432;&#417;ng:                  {7}</span></p>
+  </td>
+  <td width=223 height=28 valign=Top style='width:167.25pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;font-weight:bold;
+  language:en-US'><span dir=ltr></span>3./ Th&#432;&#7903;ng :    </span><span
+  lang=en-US style='font-size:12.0pt;language:en-US'>{12}</span><span
+  lang=en-US style='font-size:12.0pt;font-weight:bold;language:en-US'> </span></p>
+  </td>
+  <td width=216 height=28 valign=Top style='width:162.0pt;height:20.9808pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-left:solid blue .5pt;border-top:solid blue .5pt;border-right:
+  solid blue .5pt;border-bottom:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>T&#7893;ng gi&#7843;m tr&#7915;: {16}</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 height=45 valign=Top style='width:174.0pt;height:33.6075pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-top:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>Tông l&#432;&#417;ng th&#7921;c lãnh  :(1) + (2) + (3) - (4)</span></p>
+  </td>
+  <td width=223 height=45 valign=Top style='width:167.25pt;height:33.6075pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-top:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:16.0pt;color:red;
+  language:en-US'>{17} (&#273;)</span></p>
+  </td>
+  <td width=216 height=45 valign=Top style='width:162.0pt;height:33.6075pt;
+  padding-left:2.88pt;padding-right:2.88pt;padding-top:2.88pt;padding-bottom:
+  2.88pt;border-top:solid blue .5pt'>
+  <p class=MsoNormal><span lang=en-US style='font-size:12.0pt;language:en-US'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+
+</div>
+
+</body>
+
+</html>

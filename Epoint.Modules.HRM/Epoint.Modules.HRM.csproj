@@ -1,0 +1,909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD5177D8-D989-4BE1-A3F7-D3834F610E89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Epoint.Modules.HRM</RootNamespace>
+    <AssemblyName>Epoint.Modules.HRM</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\E-DMS40_Migration\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Epoint\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>epoint.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.Chart, Version=5.3.1436.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\ActiveReports.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveReports.Design3, Version=5.3.1436.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\ActiveReports.Design3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer3, Version=5.3.1436.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\ActiveReports.Viewer3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveReports3, Version=5.3.1436.2, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\ActiveReports3.dll</HintPath>
+    </Reference>
+    <Reference Include="DataDynamics.ActiveReports.ToolBoxClassLib, Version=1.0.2847.42951, Culture=neutral, PublicKeyToken=83ecad14be774e7c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\DataDynamics.ActiveReports.ToolBoxClassLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.Data.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.Utils.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.XtraBars.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.XtraEditors.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.XtraGrid.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.XtraNavBar.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\0-EpointERP\DevExpress.XtraTreeList.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Controllers">
+      <HintPath>..\..\..\Epoint\Epoint.Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Lists">
+      <HintPath>..\..\..\Epoint\Epoint.Lists.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Reports, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Accounting\Epoint.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Systems">
+      <HintPath>..\..\..\Epoint\Epoint.Systems.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Systems.Commons, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Epoint\Epoint.Systems.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Systems.Data">
+      <HintPath>..\..\..\Epoint\Epoint.Systems.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Systems.Elements">
+      <HintPath>..\..\..\Epoint\Epoint.Systems.Elements.dll</HintPath>
+    </Reference>
+    <Reference Include="Epoint.Systems.Librarys, Version=2.0.1.2, Culture=neutral, PublicKeyToken=3e07b9e1987d105e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\0-Epoint\Epoint.Systems.Librarys.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Chart\rptResourceChart_all.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Chart\rptResourceChart_all.designer.cs">
+      <DependentUpon>rptResourceChart_all.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\frmResourceAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart\frmResourceAnalysis.designer.cs">
+      <DependentUpon>frmResourceAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\rptResourceChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Chart\rptResourceChart.designer.cs">
+      <DependentUpon>rptResourceChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\frmResourceChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart\frmResourceChart.designer.cs">
+      <DependentUpon>frmResourceChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\frmDoanhThuChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart\frmDoanhThuChart.designer.cs">
+      <DependentUpon>frmDoanhThuChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\rptDoanhThuChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Chart\rptDoanhThuChart.designer.cs">
+      <DependentUpon>rptDoanhThuChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\frmHumanChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart\frmHumanChart.designer.cs">
+      <DependentUpon>frmHumanChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\rptReportChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Chart\rptReportChart.designer.cs">
+      <DependentUpon>rptReportChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmBHYT_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmBHYT_Edit.designer.cs">
+      <DependentUpon>frmBHYT_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmChamCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmChamCong.designer.cs">
+      <DependentUpon>frmChamCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmChamCong_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmChamCong_Edit.designer.cs">
+      <DependentUpon>frmChamCong_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmChamCong_VanTay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmChamCong_VanTay.designer.cs">
+      <DependentUpon>frmChamCong_VanTay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmCongTrinh_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmCongTrinh_Edit.designer.cs">
+      <DependentUpon>frmCongTrinh_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmDaoTaoKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmDaoTaoKH.designer.cs">
+      <DependentUpon>frmDaoTaoKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmDaoTaoKH_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmDaoTaoKH_Edit.designer.cs">
+      <DependentUpon>frmDaoTaoKH_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_CongTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_CongTrinh.designer.cs">
+      <DependentUpon>frmEmployee_CongTrinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_DanhGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_DanhGia.designer.cs">
+      <DependentUpon>frmEmployee_DanhGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_DaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_DaoTao.designer.cs">
+      <DependentUpon>frmEmployee_DaoTao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_LamViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_LamViec.Designer.cs">
+      <DependentUpon>frmEmployee_LamViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_NghiPhep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_NghiPhep.designer.cs">
+      <DependentUpon>frmEmployee_NghiPhep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_UngTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_UngTuyen.designer.cs">
+      <DependentUpon>frmEmployee_UngTuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmLamViec_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmLamViec_Edit.Designer.cs">
+      <DependentUpon>frmLamViec_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmPhepNam_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmPhepNam_Edit.designer.cs">
+      <DependentUpon>frmPhepNam_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTroCap_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTroCap_Edit.designer.cs">
+      <DependentUpon>frmTroCap_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTuyenDungKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTuyenDungKH.designer.cs">
+      <DependentUpon>frmTuyenDungKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTuyenDungKH_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTuyenDungKH_Edit.designer.cs">
+      <DependentUpon>frmTuyenDungKH_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTuyenDung_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTuyenDung_Edit.designer.cs">
+      <DependentUpon>frmTuyenDung_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTyLe_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTyLe_Edit.designer.cs">
+      <DependentUpon>frmTyLe_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmUngTuyen_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmUngTuyen_Edit.designer.cs">
+      <DependentUpon>frmUngTuyen_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmViTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmViTri.designer.cs">
+      <DependentUpon>frmViTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmViTri_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmViTri_Edit.designer.cs">
+      <DependentUpon>frmViTri_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmDuyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmDuyet.designer.cs">
+      <DependentUpon>frmDuyet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmFilter.designer.cs">
+      <DependentUpon>frmFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmKhCv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmKhCv.designer.cs">
+      <DependentUpon>frmKhCv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmKhCv_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmKhCv_Edit.designer.cs">
+      <DependentUpon>frmKhCv_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmPmTb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmPmTb.designer.cs">
+      <DependentUpon>frmPmTb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmPmTb_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmPmTb_Edit.designer.cs">
+      <DependentUpon>frmPmTb_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmPmVPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmPmVPP.designer.cs">
+      <DependentUpon>frmPmVPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmPmVPP_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmPmVPP_Edit.designer.cs">
+      <DependentUpon>frmPmVPP_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmTdCv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmTdCv.designer.cs">
+      <DependentUpon>frmTdCv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmTdCv_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmTdCv_Edit.designer.cs">
+      <DependentUpon>frmTdCv_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmTheoDoiXe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmTheoDoiXe.designer.cs">
+      <DependentUpon>frmTheoDoiXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office\frmTheoDoiXe_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office\frmTheoDoiXe_Edit.designer.cs">
+      <DependentUpon>frmTheoDoiXe_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmBHXH_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmBHXH_Edit.designer.cs">
+      <DependentUpon>frmBHXH_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmConfigLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmConfigLog.Designer.cs">
+      <DependentUpon>frmConfigLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmCongTac_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmCongTac_Edit.designer.cs">
+      <DependentUpon>frmCongTac_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmDanhGia_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmDanhGia_Edit.designer.cs">
+      <DependentUpon>frmDanhGia_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmDaoTao_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmDaoTao_Edit.designer.cs">
+      <DependentUpon>frmDaoTao_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee.designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_BaoHiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_BaoHiem.designer.cs">
+      <DependentUpon>frmEmployee_BaoHiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_Edit.designer.cs">
+      <DependentUpon>frmEmployee_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_HopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_HopDong.designer.cs">
+      <DependentUpon>frmEmployee_HopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_Thue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_Thue.designer.cs">
+      <DependentUpon>frmEmployee_Thue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_TsTn0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_TsTn0.Designer.cs">
+      <DependentUpon>frmEmployee_TsTn0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmEmployee_TuyenDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmEmployee_TuyenDung.designer.cs">
+      <DependentUpon>frmEmployee_TuyenDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmGiaDinh_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmGiaDinh_Edit.designer.cs">
+      <DependentUpon>frmGiaDinh_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmHopDongPL_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmHopDongPL_Edit.designer.cs">
+      <DependentUpon>frmHopDongPL_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmHopDong_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmHopDong_Edit.designer.cs">
+      <DependentUpon>frmHopDong_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmKhenThuong_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmKhenThuong_Edit.designer.cs">
+      <DependentUpon>frmKhenThuong_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmKinhNghiem_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmKinhNghiem_Edit.designer.cs">
+      <DependentUpon>frmKinhNghiem_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmKyNang_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmKyNang_Edit.designer.cs">
+      <DependentUpon>frmKyNang_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmPhongVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmPhongVan.designer.cs">
+      <DependentUpon>frmPhongVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmPhongVan_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmPhongVan_Edit.designer.cs">
+      <DependentUpon>frmPhongVan_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmPhucLoi_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmPhucLoi_Edit.designer.cs">
+      <DependentUpon>frmPhucLoi_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmThue_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmThue_Edit.designer.cs">
+      <DependentUpon>frmThue_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmViewTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmViewTransaction.Designer.cs">
+      <DependentUpon>frmViewTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmLoadTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmLoadTransaction.Designer.cs">
+      <DependentUpon>frmLoadTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmNghiPhep_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmNghiPhep_Edit.Designer.cs">
+      <DependentUpon>frmNghiPhep_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Human\frmTsTn0_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human\frmTsTn0_Edit.Designer.cs">
+      <DependentUpon>frmTsTn0_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Chart\rptResourceChart_all.resx">
+      <DependentUpon>rptResourceChart_all.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\frmResourceAnalysis.resx">
+      <DependentUpon>frmResourceAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\frmResourceChart.resx">
+      <DependentUpon>frmResourceChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\frmDoanhThuChart.resx">
+      <DependentUpon>frmDoanhThuChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\frmHumanChart.resx">
+      <DependentUpon>frmHumanChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\rptDoanhThuChart.resx">
+      <DependentUpon>rptDoanhThuChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\rptResourceChart.resx">
+      <DependentUpon>rptResourceChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmBHYT_Edit.resx">
+      <DependentUpon>frmBHYT_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmChamCong.resx">
+      <DependentUpon>frmChamCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmChamCong_Edit.resx">
+      <DependentUpon>frmChamCong_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmChamCong_VanTay.resx">
+      <DependentUpon>frmChamCong_VanTay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmCongTrinh_Edit.resx">
+      <DependentUpon>frmCongTrinh_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmDaoTaoKH.resx">
+      <DependentUpon>frmDaoTaoKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmDaoTaoKH_Edit.resx">
+      <DependentUpon>frmDaoTaoKH_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_CongTrinh.resx">
+      <DependentUpon>frmEmployee_CongTrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_DanhGia.resx">
+      <DependentUpon>frmEmployee_DanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_DaoTao.resx">
+      <DependentUpon>frmEmployee_DaoTao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_LamViec.resx">
+      <DependentUpon>frmEmployee_LamViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_NghiPhep.resx">
+      <DependentUpon>frmEmployee_NghiPhep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_UngTuyen.resx">
+      <DependentUpon>frmEmployee_UngTuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmLamViec_Edit.resx">
+      <DependentUpon>frmLamViec_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmPhepNam_Edit.resx">
+      <DependentUpon>frmPhepNam_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTroCap_Edit.resx">
+      <DependentUpon>frmTroCap_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTuyenDungKH.resx">
+      <DependentUpon>frmTuyenDungKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTuyenDungKH_Edit.resx">
+      <DependentUpon>frmTuyenDungKH_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTuyenDung_Edit.resx">
+      <DependentUpon>frmTuyenDung_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTyLe_Edit.resx">
+      <DependentUpon>frmTyLe_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmUngTuyen_Edit.resx">
+      <DependentUpon>frmUngTuyen_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmViTri.resx">
+      <DependentUpon>frmViTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmViTri_Edit.resx">
+      <DependentUpon>frmViTri_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmDuyet.resx">
+      <DependentUpon>frmDuyet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmFilter.resx">
+      <DependentUpon>frmFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmKhCv.resx">
+      <DependentUpon>frmKhCv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmKhCv_Edit.resx">
+      <DependentUpon>frmKhCv_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmPmTb.resx">
+      <DependentUpon>frmPmTb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmPmTb_Edit.resx">
+      <DependentUpon>frmPmTb_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmPmVPP.resx">
+      <DependentUpon>frmPmVPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmPmVPP_Edit.resx">
+      <DependentUpon>frmPmVPP_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmTdCv.resx">
+      <DependentUpon>frmTdCv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmTdCv_Edit.resx">
+      <DependentUpon>frmTdCv_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmTheoDoiXe.resx">
+      <DependentUpon>frmTheoDoiXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office\frmTheoDoiXe_Edit.resx">
+      <DependentUpon>frmTheoDoiXe_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmBHXH_Edit.resx">
+      <DependentUpon>frmBHXH_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmConfigLog.resx">
+      <DependentUpon>frmConfigLog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmCongTac_Edit.resx">
+      <DependentUpon>frmCongTac_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmDanhGia_Edit.resx">
+      <DependentUpon>frmDanhGia_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmDaoTao_Edit.resx">
+      <DependentUpon>frmDaoTao_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_BaoHiem.resx">
+      <DependentUpon>frmEmployee_BaoHiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_Edit.resx">
+      <DependentUpon>frmEmployee_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_HopDong.resx">
+      <DependentUpon>frmEmployee_HopDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_Thue.resx">
+      <DependentUpon>frmEmployee_Thue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_TsTn0.resx">
+      <DependentUpon>frmEmployee_TsTn0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmEmployee_TuyenDung.resx">
+      <DependentUpon>frmEmployee_TuyenDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmGiaDinh_Edit.resx">
+      <DependentUpon>frmGiaDinh_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmHopDongPL_Edit.resx">
+      <DependentUpon>frmHopDongPL_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmHopDong_Edit.resx">
+      <DependentUpon>frmHopDong_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmKhenThuong_Edit.resx">
+      <DependentUpon>frmKhenThuong_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmKinhNghiem_Edit.resx">
+      <DependentUpon>frmKinhNghiem_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmKyNang_Edit.resx">
+      <DependentUpon>frmKyNang_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmPhongVan.resx">
+      <DependentUpon>frmPhongVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmPhongVan_Edit.resx">
+      <DependentUpon>frmPhongVan_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmPhucLoi_Edit.resx">
+      <DependentUpon>frmPhucLoi_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmThue_Edit.resx">
+      <DependentUpon>frmThue_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmViewTransaction.resx">
+      <DependentUpon>frmViewTransaction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmLoadTransaction.resx">
+      <DependentUpon>frmLoadTransaction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmNghiPhep_Edit.resx">
+      <DependentUpon>frmNghiPhep_Edit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human\frmTsTn0_Edit.resx">
+      <DependentUpon>frmTsTn0_Edit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmBangLuong.resx">
+      <DependentUpon>frmBangLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmBangLuong_Create.resx">
+      <DependentUpon>frmBangLuong_Create.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmBangLuong_Edit.resx">
+      <DependentUpon>frmBangLuong_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmBangLuong_Posted.resx">
+      <DependentUpon>frmBangLuong_Posted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmChamCongNgay.resx">
+      <DependentUpon>frmChamCongNgay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmDmTn.resx">
+      <DependentUpon>frmDmTn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmDmTn_Edit.resx">
+      <DependentUpon>frmDmTn_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmThueTn.resx">
+      <DependentUpon>frmThueTn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmThueTn_Edit.resx">
+      <DependentUpon>frmThueTn_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmTsTn.resx">
+      <DependentUpon>frmTsTn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary\frmTsTn_Edit.resx">
+      <DependentUpon>frmTsTn_Edit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="epoint.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong.Designer.cs">
+      <DependentUpon>frmBangLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Create.Designer.cs">
+      <DependentUpon>frmBangLuong_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Edit.designer.cs">
+      <DependentUpon>frmBangLuong_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Posted.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmBangLuong_Posted.Designer.cs">
+      <DependentUpon>frmBangLuong_Posted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmChamCongNgay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmChamCongNgay.Designer.cs">
+      <DependentUpon>frmChamCongNgay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmDmTn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmDmTn.Designer.cs">
+      <DependentUpon>frmDmTn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmDmTn_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmDmTn_Edit.Designer.cs">
+      <DependentUpon>frmDmTn_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmThueTn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmThueTn.Designer.cs">
+      <DependentUpon>frmThueTn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmThueTn_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmThueTn_Edit.designer.cs">
+      <DependentUpon>frmThueTn_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmTsTn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmTsTn.Designer.cs">
+      <DependentUpon>frmTsTn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary\frmTsTn_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary\frmTsTn_Edit.Designer.cs">
+      <DependentUpon>frmTsTn_Edit.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

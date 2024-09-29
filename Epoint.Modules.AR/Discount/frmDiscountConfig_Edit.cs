@@ -44,11 +44,14 @@ namespace Epoint.Modules.AR
                 this.drEdit = drEdit;
                 this.enuNew_Edit = enuNew_Edit;
                 this.Tag = (char)enuNew_Edit + "," + this.Tag;
+                this.Object_ID = "KHUYENMAI";
+
                 if (this.enuNew_Edit == enuEdit.Copy)
                 {
                     this.Ma_CtKM_Old = drEdit["Ma_CtKm"].ToString();
                     this.enuNew_Edit = enuEdit.New;
                 }
+
                 this.BindingCombobox();
                 Common.ScaterMemvar(this, ref drEdit);
 
@@ -86,6 +89,16 @@ namespace Epoint.Modules.AR
                         Languages.GetLanguage("Not_Null"));
                 return false;
             }
+            if (!Element.sysIs_Admin)
+            {
+                if (!Common.CheckDataLocked(Library.StrToDate(dteNgay_BD.Text)) || !Common.CheckDataLocked(Library.StrToDate(dteNgay_Kt.Text)))
+                {
+
+                    this.lbtInformation.Text = "Dữ liệu đã bị khóa, Liên hệ Admin hệ thống.";
+                    return false;
+                }
+            }
+
             return bvalid;
         }
 
@@ -225,6 +238,30 @@ namespace Epoint.Modules.AR
             }
 
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            if (!Element.sysIs_Admin)
+            {
+
+                if (!Common.CheckPermission(this.Object_ID, enuPermission_Type.Allow_Edit))
+                {
+                    this.btgAccept.btAccept.Enabled = false;
+                    return;
+                }
+                if (this.enuNew_Edit == enuEdit.Edit)
+                    if (!Common.CheckDataLocked(Library.StrToDate(dteNgay_BD.Text)) || !Common.CheckDataLocked(Library.StrToDate(dteNgay_Kt.Text)))
+                    {
+                        this.btgAccept.btAccept.Enabled = false;
+                        this.lbtInformation.Text = "Dữ liệu đã bị khóa, Liên hệ Admin hệ thống.";
+                        return;
+                    }
+            }
+            
+        }
+        
 
     }
     #endregion

@@ -23,6 +23,7 @@ namespace Epoint.Modules.AR
 
         string strMa_CTKM = String.Empty;
         string strStt = String.Empty;
+        Boolean IsDataLock = false;
         DataTable dtImport;
         string strError = string.Empty;
 
@@ -185,18 +186,26 @@ namespace Epoint.Modules.AR
         {
             if (dgvDiscountProg.Focused)
                 EditDiscountProg(enuNew_Edit);
-            else if (dgvDiscBreak.Focused)
-                EditDiscBreak(enuNew_Edit);
-            else if (dgvDiscFreeItem.Focused)
-                EditDiscFreeItem(enuNew_Edit);
-            else if (dgvDiscItem.Focused)
-                EditDiscItem(enuNew_Edit);
-            else if (dgvDiscCustomer.Focused)
-                EditDiscCustomer(enuNew_Edit);
-            else if (dgvDiscGroupFreeItem.Focused)
-                EditDiscGroupItem(enuNew_Edit);
-            else if (dgvDiscCustGroup.Focused)
-                EditDiscGroupCust(enuNew_Edit);
+            else if (!this.IsDataLock)
+            {
+                if (dgvDiscBreak.Focused)
+                    EditDiscBreak(enuNew_Edit);
+                else if (dgvDiscFreeItem.Focused)
+                    EditDiscFreeItem(enuNew_Edit);
+                else if (dgvDiscItem.Focused)
+                    EditDiscItem(enuNew_Edit);
+                else if (dgvDiscCustomer.Focused)
+                    EditDiscCustomer(enuNew_Edit);
+                else if (dgvDiscGroupFreeItem.Focused)
+                    EditDiscGroupItem(enuNew_Edit);
+                else if (dgvDiscCustGroup.Focused)
+                    EditDiscGroupCust(enuNew_Edit);
+            }  
+            else   
+                EpointMessage.MsgOk("CTKM : " + strMa_CTKM + " Dữ liệu đã bị khóa, Liên hệ Admin hệ thống.");
+
+
+
         }
         private void EditDiscountProg(enuEdit enuNew_Edit)
         {
@@ -253,6 +262,9 @@ namespace Epoint.Modules.AR
             Common.CopyDataRow(((DataRowView)bdsDiscountProg.Current).Row, ref drCurrentDicsProg);
             this.strMa_CTKM = drCurrentDicsProg["MA_CTKM"].ToString();
 
+            frmDiscBreak_Edit frmEdit = new frmDiscBreak_Edit();
+            frmEdit.isDataLock = this.IsDataLock;
+
             if (enuNew_Edit == enuEdit.New)
             {
                 drCurrentBreak["Ma_CTKM"] = this.strMa_CTKM;
@@ -261,11 +273,10 @@ namespace Epoint.Modules.AR
                 htPara.Add("MA_CTKM", this.strMa_CTKM);
                 string strStt = SQLExec.ExecuteReturnValue("sp_OM_GetDiscoutStt", htPara, CommandType.StoredProcedure).ToString();
 
-                drCurrentBreak["STT"] = strStt;
+                drCurrentBreak["STT"] = strStt;              
 
             }
-
-            frmDiscBreak_Edit frmEdit = new frmDiscBreak_Edit();
+            
             frmEdit.Load(enuNew_Edit, drCurrentBreak);
 
 
@@ -318,17 +329,15 @@ namespace Epoint.Modules.AR
 
             Common.CopyDataRow(((DataRowView)bdsDiscBreak.Current).Row, ref drCurrentBreak);
 
-
+            frmDiscFreeItem_Edit frmEdit = new frmDiscFreeItem_Edit();
+            frmEdit.isDataLock = this.IsDataLock;
             if (enuNew_Edit == enuEdit.New)
             {
                 drCurrentFreeItem["Ma_CTKM"] = drCurrentBreak["Ma_CTKM"];
-
                 drCurrentFreeItem["STT"] = drCurrentBreak["STT"];
 
             }
-
-
-            frmDiscFreeItem_Edit frmEdit = new frmDiscFreeItem_Edit();
+           
             frmEdit.Load(enuNew_Edit, drCurrentFreeItem);
 
             //Accept
@@ -429,6 +438,7 @@ namespace Epoint.Modules.AR
             else
             {
                 frmDiscItem_Edit frmEdit = new frmDiscItem_Edit();
+                frmEdit.isDataLock = this.IsDataLock;
                 frmEdit.Load(enuNew_Edit, drCurentItem);
 
                 //Accept
@@ -682,6 +692,13 @@ namespace Epoint.Modules.AR
 
         public override void Delete()
         {
+
+            if (this.IsDataLock)
+            {
+                EpointMessage.MsgOk("Dữ liệu đã bị khóa, Liên hệ Admin hệ thống.");
+                return;
+            }
+
             if (dgvDiscountProg.Focused)
                 DeleteDiscountProg();
             else if (dgvDiscBreak.Focused)
@@ -919,8 +936,16 @@ namespace Epoint.Modules.AR
             //    tabDiscCountDetail.ShowPageInTabControl(tpDiscCust);
             //    tabDiscCountDetail.ShowPageInTabControl(tpMa_Nh_Dt);
             //}
-
-
+            this.IsDataLock = false;
+            DateTime dtNgayBd = Convert.ToDateTime(drCurrentDicsProg["Ngay_Bd"]);
+            DateTime dtNgaykt = drCurrentDicsProg["Ngay_Kt"] != DBNull.Value ? Convert.ToDateTime(drCurrentDicsProg["Ngay_Kt"]) : DateTime.Now;
+            if (!Element.sysIs_Admin)
+            {
+                if (!Common.CheckDataLocked(dtNgayBd) || !Common.CheckDataLocked(dtNgaykt))
+                {
+                    IsDataLock = true;
+                }
+            }
 
         }
         void btFillData_Click(object sender, EventArgs e)

@@ -44,6 +44,8 @@ namespace Epoint.Modules.AR
             this.cbxLoai_KM = new Epoint.Systems.Controls.cboControl();
             this.txtTen_CTKM = new Epoint.Systems.Controls.txtTextLookup();
             this.txtMa_Ngan_Sach = new Epoint.Systems.Controls.txtTextLookup();
+            this.txtFilterNs = new Epoint.Systems.Controls.txtTextLookup();
+            this.txtValueFilter = new Epoint.Systems.Controls.txtTextLookup();
             this.txtMa_CTKM = new Epoint.Systems.Controls.txtTextLookup();
             this.lblControl4 = new Epoint.Systems.Controls.lblControl();
             this.lblControl7 = new Epoint.Systems.Controls.lblControl();
@@ -59,8 +61,7 @@ namespace Epoint.Modules.AR
             this.lbNgay_Ap = new Epoint.Systems.Controls.lblControl();
             this.lbMa_Vt = new Epoint.Systems.Controls.lblControl();
             this.control1 = new System.Windows.Forms.Control();
-            this.txtFilterNs = new Epoint.Systems.Controls.txtTextLookup();
-            this.txtValueFilter = new Epoint.Systems.Controls.txtTextLookup();
+            this.lbtInformation = new Epoint.Systems.Controls.lblControl();
             this.tabEdit.SuspendLayout();
             this.Page1.SuspendLayout();
             this.Page2.SuspendLayout();
@@ -91,6 +92,7 @@ namespace Epoint.Modules.AR
             // 
             this.grTitle1.Controls.Add(this.lblControl5);
             this.grTitle1.Controls.Add(this.numTSo_Luong);
+            this.grTitle1.Controls.Add(this.lbtInformation);
             this.grTitle1.Controls.Add(this.lblTTien);
             this.grTitle1.Controls.Add(this.numTTien);
             this.grTitle1.Controls.Add(this.chkAllowEditDisc);
@@ -388,6 +390,51 @@ namespace Epoint.Modules.AR
             this.txtMa_Ngan_Sach.TabIndex = 8;
             this.txtMa_Ngan_Sach.UseAutoFilter = true;
             // 
+            // txtFilterNs
+            // 
+            this.txtFilterNs.bEnabled = true;
+            this.txtFilterNs.bIsLookup = false;
+            this.txtFilterNs.bReadOnly = false;
+            this.txtFilterNs.bRequire = false;
+            this.txtFilterNs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFilterNs.ColumnsView = null;
+            this.txtFilterNs.CtrlDepend = null;
+            this.txtFilterNs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilterNs.KeyFilter = "";
+            this.txtFilterNs.ListControlFilter = new System.Windows.Forms.Control[0];
+            this.txtFilterNs.ListFilter = new string[0];
+            this.txtFilterNs.Location = new System.Drawing.Point(503, 120);
+            this.txtFilterNs.LookupKeyFilter = "";
+            this.txtFilterNs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.txtFilterNs.Name = "txtFilterNs";
+            this.txtFilterNs.Size = new System.Drawing.Size(50, 20);
+            this.txtFilterNs.TabIndex = 0;
+            this.txtFilterNs.UseAutoFilter = false;
+            this.txtFilterNs.Visible = false;
+            // 
+            // txtValueFilter
+            // 
+            this.txtValueFilter.bEnabled = true;
+            this.txtValueFilter.bIsLookup = false;
+            this.txtValueFilter.bReadOnly = false;
+            this.txtValueFilter.bRequire = false;
+            this.txtValueFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValueFilter.ColumnsView = null;
+            this.txtValueFilter.CtrlDepend = null;
+            this.txtValueFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValueFilter.KeyFilter = "";
+            this.txtValueFilter.ListControlFilter = new System.Windows.Forms.Control[0];
+            this.txtValueFilter.ListFilter = new string[0];
+            this.txtValueFilter.Location = new System.Drawing.Point(568, 120);
+            this.txtValueFilter.LookupKeyFilter = "";
+            this.txtValueFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.txtValueFilter.Name = "txtValueFilter";
+            this.txtValueFilter.Size = new System.Drawing.Size(50, 20);
+            this.txtValueFilter.TabIndex = 0;
+            this.txtValueFilter.Text = "0";
+            this.txtValueFilter.UseAutoFilter = false;
+            this.txtValueFilter.Visible = false;
+            // 
             // txtMa_CTKM
             // 
             this.txtMa_CTKM.bEnabled = true;
@@ -605,50 +652,19 @@ namespace Epoint.Modules.AR
             this.control1.TabIndex = 0;
             this.control1.Text = "control1";
             // 
-            // txtFilterNs
+            // lbtInformation
             // 
-            this.txtFilterNs.bEnabled = true;
-            this.txtFilterNs.bIsLookup = false;
-            this.txtFilterNs.bReadOnly = false;
-            this.txtFilterNs.bRequire = false;
-            this.txtFilterNs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFilterNs.ColumnsView = null;
-            this.txtFilterNs.CtrlDepend = null;
-            this.txtFilterNs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilterNs.KeyFilter = "";
-            this.txtFilterNs.ListControlFilter = new System.Windows.Forms.Control[0];
-            this.txtFilterNs.ListFilter = new string[0];
-            this.txtFilterNs.Location = new System.Drawing.Point(503, 120);
-            this.txtFilterNs.LookupKeyFilter = "";
-            this.txtFilterNs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
-            this.txtFilterNs.Name = "txtFilterNs";
-            this.txtFilterNs.Size = new System.Drawing.Size(50, 20);
-            this.txtFilterNs.TabIndex = 0;
-            this.txtFilterNs.UseAutoFilter = false;
-            this.txtFilterNs.Visible = false;
-            // 
-            // txtValueFilter
-            // 
-            this.txtValueFilter.bEnabled = true;
-            this.txtValueFilter.bIsLookup = false;
-            this.txtValueFilter.bReadOnly = false;
-            this.txtValueFilter.bRequire = false;
-            this.txtValueFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtValueFilter.ColumnsView = null;
-            this.txtValueFilter.CtrlDepend = null;
-            this.txtValueFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValueFilter.KeyFilter = "";
-            this.txtValueFilter.ListControlFilter = new System.Windows.Forms.Control[0];
-            this.txtValueFilter.ListFilter = new string[0];
-            this.txtValueFilter.Location = new System.Drawing.Point(568, 120);
-            this.txtValueFilter.LookupKeyFilter = "";
-            this.txtValueFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
-            this.txtValueFilter.Name = "txtValueFilter";
-            this.txtValueFilter.Size = new System.Drawing.Size(50, 20);
-            this.txtValueFilter.TabIndex = 0;
-            this.txtValueFilter.Text = "0";
-            this.txtValueFilter.UseAutoFilter = false;
-            this.txtValueFilter.Visible = false;
+            this.lbtInformation.AutoEllipsis = true;
+            this.lbtInformation.AutoSize = true;
+            this.lbtInformation.BackColor = System.Drawing.Color.Transparent;
+            this.lbtInformation.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbtInformation.Location = new System.Drawing.Point(6, 435);
+            this.lbtInformation.Name = "lbtInformation";
+            this.lbtInformation.Size = new System.Drawing.Size(32, 13);
+            this.lbtInformation.TabIndex = 139;
+            this.lbtInformation.Tag = "";
+            this.lbtInformation.Text = "Text";
+            this.lbtInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmDiscountConfig_Edit
             // 
@@ -704,5 +720,6 @@ namespace Epoint.Modules.AR
         private Systems.Controls.txtTextLookup txtFilterNs;
         private System.Windows.Forms.Control control1;
         private Systems.Controls.txtTextLookup txtValueFilter;
+        private Systems.Controls.lblControl lbtInformation;
     }
 }

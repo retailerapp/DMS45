@@ -677,6 +677,16 @@ namespace Epoint.Modules.AR
                     return false;
                 }
 
+                if (dtEditCt.Columns.Contains("Tien_M4") && Convert.ToDouble(dr["Tien_M4"]) > 0 && !Convert.ToBoolean(dr["Hang_Km"]))
+                {
+                    if (dr["MA_CTKM_M"].ToString() == string.Empty)
+                    {
+                        string strMsg = Element.sysLanguage == enuLanguageType.Vietnamese ? "Tồn tại dòng hàng có tiền chiết khấu không có mã CTKM!" : "CTKM is not empty!";
+                        Common.MsgCancel(strMsg);
+                        return false;
+                    }
+                }
+
                 if (dtEditCt.Columns.Contains("Tien_M4") && Convert.ToDouble(dr["Tien_M4"]) == 0 && !Convert.ToBoolean(dr["Hang_Km"]))
                 {
                     dr["MA_CTKM_M"] = string.Empty;
@@ -1020,7 +1030,7 @@ namespace Epoint.Modules.AR
             htParameter.Add("MA_CT", this.drEditPh["Ma_Ct"]);
             htParameter.Add("NGAY_CT", Library.DateToStr((DateTime)this.drEditPh["Ngay_Ct"]));
             htParameter.Add("MA_DT", this.txtMa_Dt.Text);
-            htParameter.Add("LOAI_TRA_HANG", this.cbxLoai_Tra_Hang.Text);
+            htParameter.Add("LOAI_TRA_HANG", this.cbxLoai_Tra_Hang.SelectedValue);
             strSo_Ct_New = SQLExec.ExecuteReturnValue("sp_Cong_So_Ct_Dms", htParameter, CommandType.StoredProcedure).ToString();
 
             txtSo_Ct.Text = strSo_Ct_New;
@@ -2200,6 +2210,8 @@ namespace Epoint.Modules.AR
                     dtEditCt.Rows.Clear();
 
                     DataTable dtInvoice = DataTool.SQLGetDataTable("ARBAN", "", "Stt = '" + Stt_Org + "'", "Stt0");
+                    DataTable OM_SalesDics = DataTool.SQLGetDataTable("OM_SalesDics", "", "Stt = '" + Stt_Org + "'", "Stt0");
+                    this.dtEditCtDisc = SQLExec.ExecuteReturnDt("DECLARE @EditDisc AS TVP_DiscAmt SELECT * FROM @EditDisc");
 
                     foreach (DataRow drViewCt in dtInvoice.Rows)
                     {
